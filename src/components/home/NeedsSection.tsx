@@ -103,19 +103,19 @@ export const NeedsSection: React.FC<NeedsSectionProps> = ({ onSelectPath }) => {
   ];
 
   return (
-    <section id="solutions-pathway" className="py-20 bg-white relative">
+    <section id="solutions-pathway" className="py-20 bg-navy-900 border-b border-navy-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-navy-900 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-800 text-orange-sms text-xs font-bold uppercase tracking-wider border border-navy-700">
             <Sparkles className="w-3.5 h-3.5 text-orange-sms" />
             <span>Tailored Solutions</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             What Does Your Business Need Today?
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed">
+          <p className="text-base text-slate-300 leading-relaxed">
             Select where your business stands today. We will guide you directly to the practical digital solution tailored to your exact scope.
           </p>
         </div>
@@ -133,8 +133,8 @@ export const NeedsSection: React.FC<NeedsSectionProps> = ({ onSelectPath }) => {
                 onMouseLeave={() => setHoveredCard(null)}
                 className={`group relative rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between border ${
                   card.isHeroChoice 
-                    ? 'bg-gradient-to-b from-orange-sms/[0.03] to-surface-50 border-orange-sms/40 shadow-md hover:shadow-xl' 
-                    : 'bg-white hover:bg-surface-50/50 border-slate-200 hover:border-slate-300 hover:shadow-lg'
+                    ? 'bg-navy-950 border-orange-sms/60 shadow-xl shadow-orange-sms/10' 
+                    : 'bg-navy-950/80 hover:bg-navy-950 border-navy-800 hover:border-navy-700 hover:shadow-xl'
                 } ${idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
               >
                 {card.isHeroChoice && (
@@ -151,27 +151,27 @@ export const NeedsSection: React.FC<NeedsSectionProps> = ({ onSelectPath }) => {
                     </div>
                     <div>
                       <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Goal 0{idx + 1}</span>
-                      <h3 className="text-lg font-extrabold text-navy-900 leading-tight group-hover:text-orange-sms transition">
+                      <h3 className="text-lg font-extrabold text-white leading-tight group-hover:text-orange-sms transition">
                         {card.title}
                       </h3>
                     </div>
                   </div>
 
                   {/* Customer Mindset Quote */}
-                  <div className="p-3 rounded-lg bg-surface-100 text-xs italic text-slate-600 font-medium border-l-2 border-slate-300">
+                  <div className="p-3 rounded-lg bg-navy-900 text-xs italic text-slate-300 font-medium border-l-2 border-orange-sms">
                     {card.quote}
                   </div>
 
                   {/* Solution Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                     {card.description}
                   </p>
 
                   {/* What is included bullet points */}
-                  <div className="space-y-1.5 pt-2 border-t border-slate-100">
+                  <div className="space-y-1.5 pt-2 border-t border-navy-800">
                     {card.bulletPoints.map((point, pIdx) => (
-                      <div key={pIdx} className="flex items-start gap-2 text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <div key={pIdx} className="flex items-start gap-2 text-xs text-slate-300">
+                        <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                         <span>{point}</span>
                       </div>
                     ))}
@@ -179,10 +179,10 @@ export const NeedsSection: React.FC<NeedsSectionProps> = ({ onSelectPath }) => {
                 </div>
 
                 {/* Bottom Action Area */}
-                <div className="mt-6 pt-4 border-t border-slate-100 space-y-3">
+                <div className="mt-6 pt-4 border-t border-navy-800 space-y-3">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-500 font-medium">Recommended:</span>
-                    <span className="font-bold text-navy-900 text-[11px]">
+                    <span className="text-slate-400 font-medium">Recommended:</span>
+                    <span className="font-bold text-white text-[11px]">
                       {card.recommendedSolution}
                     </span>
                   </div>
@@ -194,7 +194,7 @@ export const NeedsSection: React.FC<NeedsSectionProps> = ({ onSelectPath }) => {
                     className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                       card.isHeroChoice
                         ? 'bg-orange-sms text-white hover:bg-orange-sms-hover shadow-sm'
-                        : 'bg-navy-900 text-white hover:bg-navy-800'
+                        : 'bg-navy-800 text-white hover:bg-navy-700 border border-navy-700'
                     }`}
                   >
                     <MessageSquare className="w-3.5 h-3.5" />

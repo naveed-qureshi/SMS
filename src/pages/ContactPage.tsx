@@ -66,10 +66,10 @@ Budget: ${formData.budget}
 Details: ${formData.message}`;
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-28 pb-20">
+    <div className="min-h-screen bg-navy-950 text-slate-100 pt-28 pb-20">
       {/* Header Banner */}
       <section className="bg-navy-950 text-white py-16 lg:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F97316_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div className="absolute inset-0 bg-grid-dark-pattern opacity-15 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sms-orange/20 border border-sms-orange/30 text-sms-orange text-xs font-semibold uppercase tracking-wider mb-4">
@@ -175,6 +175,10 @@ Details: ${formData.message}`;
                     msg: 'Hello SMS! I would like to automate WhatsApp order confirmations and customer support.'
                   },
                   {
+                    title: 'Create AI Generated Video Ads',
+                    msg: 'Hello SMS! I want to create high-converting AI Video Ads for my products.'
+                  },
+                  {
                     title: 'Request a Custom Business Audit',
                     msg: 'Hello SMS! I would like to request an audit of my current website and digital marketing.'
                   }
@@ -184,10 +188,10 @@ Details: ${formData.message}`;
                     href={getWhatsAppUrl(item.msg)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-orange-50/60 border border-slate-200/70 hover:border-sms-orange/40 text-xs font-medium text-navy-950 transition-all group"
+                    className="flex items-center justify-between p-3 rounded-xl bg-navy-950 hover:bg-navy-850 border border-navy-800 hover:border-orange-500/40 text-xs font-medium text-slate-200 transition-all group"
                   >
                     <span>{item.title}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-sms-orange group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-orange-400 group-hover:translate-x-1 transition-transform" />
                   </a>
                 ))}
               </div>
@@ -196,7 +200,7 @@ Details: ${formData.message}`;
 
           {/* Right Column: Interactive Consultation Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-2xl p-6 sm:p-10 shadow-xl border border-slate-200/80">
+            <div className="bg-navy-900/80 backdrop-blur-md rounded-2xl p-6 sm:p-10 shadow-2xl border border-navy-800">
               {submitted ? (
                 <div className="text-center py-12 space-y-6">
                   <div className="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto shadow-sm">
@@ -230,15 +234,15 @@ Details: ${formData.message}`;
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <h2 className="text-2xl font-extrabold text-navy-950">Schedule a Business Consultation</h2>
-                    <p className="text-slate-500 text-xs sm:text-sm mt-1">
+                    <h2 className="text-2xl font-extrabold text-white">Schedule a Business Consultation</h2>
+                    <p className="text-slate-400 text-xs sm:text-sm mt-1">
                       Tell us about your business goals. We review every project and respond with honest, practical recommendations.
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-navy-950 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                         Full Name *
                       </label>
                       <input
@@ -248,15 +252,15 @@ Details: ${formData.message}`;
                         placeholder="e.g. Muhammad Usman"
                         className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.fullName
-                            ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
-                            : 'border-slate-200 focus:ring-sms-orange focus:border-transparent bg-slate-50/50'
+                            ? 'border-red-400 focus:ring-red-300 bg-red-950/20 text-white'
+                            : 'border-navy-700 focus:ring-orange-500 focus:border-transparent bg-navy-950 text-white placeholder-slate-500'
                         }`}
                       />
-                      {errors.fullName && <p className="text-red-500 text-[11px] mt-1">{errors.fullName}</p>}
+                      {errors.fullName && <p className="text-red-400 text-[11px] mt-1">{errors.fullName}</p>}
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-navy-950 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                         WhatsApp / Phone Number *
                       </label>
                       <input
@@ -266,17 +270,17 @@ Details: ${formData.message}`;
                         placeholder="0320 0000000"
                         className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.phone
-                            ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
-                            : 'border-slate-200 focus:ring-sms-orange focus:border-transparent bg-slate-50/50'
+                            ? 'border-red-400 focus:ring-red-300 bg-red-950/20 text-white'
+                            : 'border-navy-700 focus:ring-orange-500 focus:border-transparent bg-navy-950 text-white placeholder-slate-500'
                         }`}
                       />
-                      {errors.phone && <p className="text-red-500 text-[11px] mt-1">{errors.phone}</p>}
+                      {errors.phone && <p className="text-red-400 text-[11px] mt-1">{errors.phone}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-navy-950 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                         Email Address *
                       </label>
                       <input
@@ -286,15 +290,15 @@ Details: ${formData.message}`;
                         placeholder="yourname@domain.com"
                         className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 transition-all ${
                           errors.email
-                            ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
-                            : 'border-slate-200 focus:ring-sms-orange focus:border-transparent bg-slate-50/50'
+                            ? 'border-red-400 focus:ring-red-300 bg-red-950/20 text-white'
+                            : 'border-navy-700 focus:ring-orange-500 focus:border-transparent bg-navy-950 text-white placeholder-slate-500'
                         }`}
                       />
-                      {errors.email && <p className="text-red-500 text-[11px] mt-1">{errors.email}</p>}
+                      {errors.email && <p className="text-red-400 text-[11px] mt-1">{errors.email}</p>}
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-navy-950 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                         Business Name or Website
                       </label>
                       <input
@@ -302,22 +306,23 @@ Details: ${formData.message}`;
                         value={formData.businessName}
                         onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
                         placeholder="e.g. Lahore Apparel (optional)"
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sms-orange focus:border-transparent bg-slate-50/50"
+                        className="w-full px-4 py-2.5 rounded-xl border border-navy-700 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-navy-950 text-white placeholder-slate-500"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-navy-950 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                         Primary Service Needed
                       </label>
                       <select
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sms-orange focus:border-transparent bg-slate-50/50 text-slate-700"
+                        className="w-full px-4 py-2.5 rounded-xl border border-navy-700 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-navy-950 text-slate-200"
                       >
                         <option>E-Commerce Store & Online Ordering Platform</option>
+                        <option>AI Generated Video Ads (Meta, TikTok & YouTube)</option>
                         <option>Custom Corporate / Business Website</option>
                         <option>Search Engine Optimization (SEO & Local Maps)</option>
                         <option>Digital Growth & Performance Marketing (Ads)</option>
@@ -330,13 +335,13 @@ Details: ${formData.message}`;
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-navy-950 uppercase tracking-wider mb-1.5">
+                      <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                         Project Stage / Scope
                       </label>
                       <select
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sms-orange focus:border-transparent bg-slate-50/50 text-slate-700"
+                        className="w-full px-4 py-2.5 rounded-xl border border-navy-700 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-navy-950 text-slate-200"
                       >
                         <option>Startup / New Launch Phase</option>
                         <option>Growing SME / E-Commerce Expansion</option>
@@ -348,7 +353,7 @@ Details: ${formData.message}`;
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-navy-950 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                       Tell us about your project or current bottlenecks *
                     </label>
                     <textarea
@@ -358,27 +363,27 @@ Details: ${formData.message}`;
                       placeholder="e.g. We have a clothing brand in Lahore and want to launch a website with Trax courier integration, COD verification, and WhatsApp checkout..."
                       className={`w-full px-4 py-2.5 rounded-xl border text-sm focus:outline-none focus:ring-2 transition-all ${
                         errors.message
-                          ? 'border-red-400 focus:ring-red-300 bg-red-50/20'
-                          : 'border-slate-200 focus:ring-sms-orange focus:border-transparent bg-slate-50/50'
+                          ? 'border-red-400 focus:ring-red-300 bg-red-950/20 text-white'
+                          : 'border-navy-700 focus:ring-orange-500 focus:border-transparent bg-navy-950 text-white placeholder-slate-500'
                       }`}
                     ></textarea>
-                    {errors.message && <p className="text-red-500 text-[11px] mt-1">{errors.message}</p>}
+                    {errors.message && <p className="text-red-400 text-[11px] mt-1">{errors.message}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-navy-950 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                       Preferred Way to Discuss
                     </label>
                     <div className="flex flex-wrap gap-4">
                       {['WhatsApp', 'Phone Call', 'Email'].map((method) => (
-                        <label key={method} className="flex items-center gap-2 cursor-pointer text-xs font-medium text-slate-700">
+                        <label key={method} className="flex items-center gap-2 cursor-pointer text-xs font-medium text-slate-300">
                           <input
                             type="radio"
                             name="preferredContact"
                             value={method}
                             checked={formData.preferredContact === method}
                             onChange={(e) => setFormData({ ...formData, preferredContact: e.target.value })}
-                            className="text-sms-orange focus:ring-sms-orange"
+                            className="text-orange-500 focus:ring-orange-500"
                           />
                           <span>{method}</span>
                         </label>
@@ -390,7 +395,7 @@ Details: ${formData.message}`;
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-sms-orange text-white text-sm font-bold hover:bg-sms-orange-dark transition-all duration-200 shadow-lg shadow-sms-orange/20 disabled:opacity-60"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-orange-500 text-white text-sm font-bold hover:bg-orange-600 transition-all duration-200 shadow-lg shadow-orange-500/20 disabled:opacity-60"
                     >
                       {isSubmitting ? (
                         <span>Submitting Request...</span>

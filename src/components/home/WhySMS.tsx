@@ -41,19 +41,19 @@ export const WhySMS: React.FC = () => {
   ];
 
   return (
-    <section id="why-sms" className="py-24 bg-white border-b border-slate-200/70 relative">
+    <section id="why-sms" className="py-24 bg-navy-900/50 border-b border-navy-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/10 px-3.5 py-1 rounded-full border border-orange-sms/20">
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3.5 py-1 rounded-full border border-orange-500/20">
             Our Core Distinction
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             More Than a Service Provider.{' '}
-            <span className="text-orange-sms block mt-1">Your Digital Growth Partner.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300 block mt-1">Your Digital Growth Partner.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
             We operate as an extension of your team, providing practical guidance tailored to your specific scope and business stage.
           </p>
         </div>
@@ -66,27 +66,27 @@ export const WhySMS: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="bg-surface-50 rounded-2xl p-6 border border-slate-200 hover:border-slate-300 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-navy-950/80 rounded-2xl p-6 border border-navy-800 hover:border-orange-500/40 hover:bg-navy-900/90 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} text-white flex items-center justify-center mb-5 shadow-sm group-hover:scale-110 transition-transform`}>
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} text-white flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform`}>
                     <Icon className="w-6 h-6" />
                   </div>
 
-                  <h3 className="text-base font-extrabold text-navy-900 tracking-tight mb-2">
+                  <h3 className="text-base font-extrabold text-white tracking-tight mb-2 group-hover:text-orange-300 transition">
                     {item.title}
                   </h3>
 
-                  <div className="text-xs font-bold text-orange-sms mb-3 italic">
+                  <div className="text-xs font-bold text-orange-400 mb-3 italic">
                     "{item.quote}"
                   </div>
 
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-300 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] font-bold text-emerald-700">
+                <div className="mt-6 pt-4 border-t border-navy-800 flex items-center gap-1.5 text-[11px] font-bold text-emerald-400">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>SMS Standard</span>
                 </div>

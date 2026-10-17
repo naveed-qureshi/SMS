@@ -76,33 +76,33 @@ export const ValueProposition: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white border-y border-slate-200/70 relative overflow-hidden">
+    <section className="py-20 bg-navy-950 border-y border-navy-800 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Value Proposition Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-14">
-          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/10 px-3.5 py-1 rounded-full border border-orange-sms/20">
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/15 px-3.5 py-1 rounded-full border border-orange-sms/30">
             One Single Digital Partner
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Everything You Need to Build, Grow & Automate.
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed text-balance">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed text-balance">
             Starting a digital business can feel complicated. You need a website, domain, hosting, online payments, social media, marketing, analytics and sometimes automation.
           </p>
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-sm font-semibold max-w-2xl mx-auto">
-            Instead of managing five different vendors, <span className="text-navy-900 font-extrabold">Smart Multi Solutions</span> brings practical digital solutions together under one roof.
+          <div className="p-4 rounded-xl bg-navy-900 border border-navy-800 text-slate-300 text-sm font-semibold max-w-2xl mx-auto">
+            Instead of managing five different vendors, <span className="text-white font-extrabold">Smart Multi Solutions</span> brings practical digital solutions together under one roof.
           </div>
         </div>
 
         {/* Visual Interactive Journey */}
-        <div className="bg-gradient-to-b from-surface-50 to-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm">
+        <div className="bg-gradient-to-b from-navy-900 to-navy-950 rounded-3xl p-6 sm:p-10 border border-navy-800 shadow-xl">
           
           <div className="text-center mb-8">
             <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400">
               The Proven Digital Business Journey
             </h3>
-            <p className="text-sm font-semibold text-navy-900 mt-1">
+            <p className="text-sm font-semibold text-white mt-1">
               Click any stage to see how Smart Multi Solutions guides you through it:
             </p>
           </div>
@@ -119,14 +119,14 @@ export const ValueProposition: React.FC = () => {
                   onClick={() => setActiveStep(step.id)}
                   className={`group relative p-3 rounded-xl border text-center transition-all flex flex-col items-center justify-between ${
                     isCurrent
-                      ? 'bg-white border-orange-sms shadow-md ring-2 ring-orange-sms/20 -translate-y-1'
-                      : 'bg-white/80 border-slate-200 hover:border-slate-300 hover:bg-white'
+                      ? 'bg-navy-800 border-orange-sms shadow-lg ring-2 ring-orange-sms/30 -translate-y-1'
+                      : 'bg-navy-950/80 border-navy-800 hover:border-navy-700 hover:bg-navy-900'
                   }`}
                 >
                   <div className={`w-10 h-10 rounded-lg ${step.color} flex items-center justify-center mb-2 shadow-sm`}>
                     <Icon className="w-5 h-5" />
                   </div>
-                  <div className={`text-xs font-extrabold tracking-wide uppercase ${isCurrent ? 'text-orange-sms' : 'text-slate-700'}`}>
+                  <div className={`text-xs font-extrabold tracking-wide uppercase ${isCurrent ? 'text-orange-sms' : 'text-slate-300'}`}>
                     {step.label}
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1">

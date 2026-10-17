@@ -69,28 +69,28 @@ export const ConsultationWizard: React.FC = () => {
   };
 
   return (
-    <section id="consultation-wizard" className="py-24 bg-gradient-to-b from-surface-100 to-white relative">
+    <section id="consultation-wizard" className="py-24 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 relative border-b border-navy-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center space-y-4 mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/10 px-3.5 py-1 rounded-full border border-orange-sms/20">
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/15 px-3.5 py-1 rounded-full border border-orange-sms/30">
             Free Personalized Advisory
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Not Sure What You Need?
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
             Tell us about your business, budget, and goals. We will help you identify the right digital solution without wasting money on tools you don't need yet.
           </p>
         </div>
 
         {/* Wizard Container */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl relative overflow-hidden">
+        <div className="bg-navy-900 rounded-3xl p-6 sm:p-10 border border-navy-800 shadow-2xl relative overflow-hidden text-white">
           
           {/* Progress Indicator */}
           <div className="mb-8">
-            <div className="flex items-center justify-between text-xs font-bold text-slate-500 mb-2">
+            <div className="flex items-center justify-between text-xs font-bold text-slate-400 mb-2">
               <span>Step {currentStep} of 4</span>
               <span className="text-orange-sms">
                 {currentStep === 1 && '1. Your Business Type'}

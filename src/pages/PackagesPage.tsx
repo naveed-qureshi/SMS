@@ -17,6 +17,7 @@ export const PackagesPage: React.FC = () => {
     { id: 'speed-cdn', name: 'Global CDN, Caching & Nitro Performance Optimization' },
     { id: 'ecommerce-engine', name: 'WooCommerce / Shopify E-Commerce Store & Payment Gateways' },
     { id: 'courier-sync', name: 'Automated Courier (Trax / Leopards / M&P) & COD Dispatch' },
+    { id: 'ai-video-ads', name: 'AI Generated Video Ads for Meta, TikTok & YouTube' },
     { id: 'ai-chatbot', name: '24/7 AI-Powered WhatsApp & Web Chatbot Integration' },
     { id: 'seo-dominance', name: 'Search Engine Optimization (SEO) & Google Map Ranking' },
     { id: 'bi-dashboards', name: 'Real-Time Executive Dashboards & Automated Invoicing' },
@@ -29,29 +30,30 @@ export const PackagesPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-surface-50 min-h-screen">
+    <div className="bg-navy-950 text-slate-100 min-h-screen pt-24 pb-20">
       
       {/* Hero Header */}
-      <section className="bg-gradient-to-b from-white to-surface-100 py-16 sm:py-24 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/10 px-3.5 py-1 rounded-full border border-orange-sms/20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-navy-900 to-navy-950 py-16 sm:py-24 border-b border-navy-800">
+        <div className="absolute inset-0 bg-grid-dark-pattern opacity-15 pointer-events-none" />
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3.5 py-1 rounded-full border border-orange-500/20">
             Tailored Scopes • 100% Bespoke Execution
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-900 tracking-tight">
-            Tailored Digital Solutions & Capabilities
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+            Tailored Digital Solutions & <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Capabilities</span>
           </h1>
-          <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Every company has distinct goals. We scope, architect, and deliver digital solutions customized to your business stage, technical needs, and timeline.
           </p>
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-700">
-            <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" /> Custom Tailored Scopes
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-slate-300">
+            <span className="flex items-center gap-1.5 bg-navy-900/90 px-3 py-1.5 rounded-lg border border-navy-700 shadow-sm">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" /> Custom Tailored Scopes
             </span>
-            <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
-              <Check className="w-4 h-4 text-emerald-600" /> Post-Launch Training & Handover Included
+            <span className="flex items-center gap-1.5 bg-navy-900/90 px-3 py-1.5 rounded-lg border border-navy-700 shadow-sm">
+              <Check className="w-4 h-4 text-emerald-400" /> Post-Launch Training & Handover Included
             </span>
-            <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
-              <Check className="w-4 h-4 text-emerald-600" /> 100% Data & Code Ownership
+            <span className="flex items-center gap-1.5 bg-navy-900/90 px-3 py-1.5 rounded-lg border border-navy-700 shadow-sm">
+              <Check className="w-4 h-4 text-emerald-400" /> 100% Data & Code Ownership
             </span>
           </div>
         </div>
@@ -63,10 +65,10 @@ export const PackagesPage: React.FC = () => {
       {/* 5 Solutions Pillars */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-navy-900">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
             Explore Core Capability Pillars
           </h2>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-slate-400">
             Select a solution pillar to review core capabilities or request a customized proposal.
           </p>
         </div>
@@ -81,18 +83,18 @@ export const PackagesPage: React.FC = () => {
                 key={pkg.id}
                 className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between ${
                   isEcommerce
-                    ? 'bg-navy-900 text-white shadow-2xl border-2 border-orange-sms ring-4 ring-orange-sms/10 scale-100 lg:-translate-y-2'
-                    : 'bg-white text-slate-800 border border-slate-200 shadow-sm hover:shadow-xl hover:border-slate-300'
+                    ? 'bg-navy-900/95 text-white shadow-2xl border-2 border-orange-500 ring-4 ring-orange-500/10 scale-100 lg:-translate-y-2'
+                    : 'bg-navy-900/80 backdrop-blur-sm text-slate-200 border border-navy-800 shadow-xl hover:shadow-2xl hover:border-orange-500/40'
                 }`}
               >
                 {pkg.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className={`text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1 ${
                       isEcommerce
-                        ? 'bg-gradient-to-r from-orange-sms to-amber-500 text-white'
+                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white'
                         : isPopular
                         ? 'bg-blue-600 text-white'
-                        : 'bg-slate-100 text-slate-700 border border-slate-300'
+                        : 'bg-navy-800 text-slate-300 border border-navy-700'
                     }`}>
                       {isEcommerce && <Sparkles className="w-3 h-3" />}
                       {pkg.badge}
@@ -102,38 +104,36 @@ export const PackagesPage: React.FC = () => {
 
                 <div>
                   <div className="pt-2 mb-4">
-                    <h3 className={`text-xl font-extrabold tracking-tight ${isEcommerce ? 'text-white' : 'text-navy-900'}`}>
+                    <h3 className="text-xl font-extrabold tracking-tight text-white">
                       {pkg.name}
                     </h3>
-                    <p className={`text-xs mt-1 leading-snug ${isEcommerce ? 'text-slate-300' : 'text-slate-500'}`}>
+                    <p className="text-xs mt-1 leading-snug text-slate-400">
                       For {pkg.targetAudience}
                     </p>
                   </div>
 
-                  <div className={`py-3 px-4 rounded-xl mb-5 ${isEcommerce ? 'bg-navy-800 border border-navy-700' : 'bg-surface-100 border border-slate-200'}`}>
+                  <div className={`py-3 px-4 rounded-xl mb-5 ${isEcommerce ? 'bg-navy-800/90 border border-navy-700' : 'bg-navy-950/80 border border-navy-800'}`}>
                     <div className="text-[11px] font-semibold text-slate-400">Model</div>
                     <div className="flex items-baseline gap-1">
-                      <span className={`text-base lg:text-lg font-extrabold tracking-tight ${isEcommerce ? 'text-orange-sms' : 'text-navy-900'}`}>
+                      <span className={`text-base lg:text-lg font-extrabold tracking-tight ${isEcommerce ? 'text-orange-400' : 'text-white'}`}>
                         {pkg.price}
                       </span>
                     </div>
                   </div>
 
-                  <p className={`text-xs leading-relaxed mb-5 ${isEcommerce ? 'text-slate-300' : 'text-slate-600'}`}>
+                  <p className="text-xs leading-relaxed mb-5 text-slate-300">
                     {pkg.tagline}
                   </p>
 
-                  <div className="space-y-2.5 pt-2 border-t border-slate-100 dark:border-navy-700">
-                    <div className={`text-[11px] font-bold uppercase tracking-wider ${isEcommerce ? 'text-orange-400' : 'text-slate-400'}`}>
+                  <div className="space-y-2.5 pt-2 border-t border-navy-800">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-orange-400">
                       Core Capabilities:
                     </div>
                     <ul className="space-y-2">
                       {pkg.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs">
-                          <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                            isEcommerce ? 'text-orange-sms' : 'text-emerald-600'
-                          }`} />
-                          <span className={`${feat.highlighted ? (isEcommerce ? 'font-bold text-white' : 'font-bold text-navy-900') : (isEcommerce ? 'text-slate-300' : 'text-slate-600')}`}>
+                          <Check className="w-3.5 h-3.5 shrink-0 mt-0.5 text-emerald-400" />
+                          <span className={feat.highlighted ? 'font-bold text-white' : 'text-slate-300'}>
                             {feat.text}
                           </span>
                         </li>
@@ -142,15 +142,15 @@ export const PackagesPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-slate-100 dark:border-navy-700">
+                <div className="pt-6 mt-6 border-t border-navy-800">
                   <a
                     href={getWhatsAppUrl(`Hi Smart Multi Solutions team, I want to request a customized quote for: ${pkg.name}.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-full py-3 px-4 rounded-xl text-xs font-extrabold transition-all duration-200 flex items-center justify-center gap-2 ${
                       isEcommerce
-                        ? 'bg-gradient-to-r from-orange-sms to-orange-sms-hover text-white shadow-lg hover:shadow-orange-sms/20 hover:scale-[1.02]'
-                        : 'bg-navy-900 text-white hover:bg-navy-800'
+                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02]'
+                        : 'bg-navy-800 hover:bg-navy-750 text-white border border-navy-700'
                     }`}
                   >
                     <MessageSquare className="w-4 h-4" />
@@ -164,18 +164,18 @@ export const PackagesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Interactive Custom Scope Builder (No Prices) */}
+      {/* Interactive Custom Scope Builder */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl space-y-8">
+        <div className="bg-navy-900/90 backdrop-blur-md rounded-3xl p-8 sm:p-12 border border-navy-800 shadow-2xl space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
-              <Sliders className="w-3.5 h-3.5 text-orange-sms" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider">
+              <Sliders className="w-3.5 h-3.5" />
               <span>Scope Builder</span>
             </div>
-            <h2 className="text-3xl font-extrabold text-navy-900">
+            <h2 className="text-3xl font-extrabold text-white">
               Build Your Custom Project Scope
             </h2>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-slate-300">
               Select the capabilities your business needs. Send them directly to our advisory team on WhatsApp for an immediate consultation.
             </p>
           </div>
@@ -190,20 +190,20 @@ export const PackagesPage: React.FC = () => {
                   onClick={() => toggleModule(mod.id)}
                   className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-start justify-between gap-3 ${
                     isSelected
-                      ? 'border-orange-sms bg-orange-sms/5 ring-2 ring-orange-sms/20 shadow-sm'
-                      : 'border-slate-200 hover:border-slate-300 bg-surface-50'
+                      ? 'border-orange-500 bg-orange-500/15 ring-2 ring-orange-500/30 shadow-lg text-white'
+                      : 'border-navy-800 hover:border-navy-700 bg-navy-950/80 text-slate-300'
                   }`}
                 >
                   <div className="space-y-1">
-                    <span className="text-xs font-bold text-navy-900 block">
+                    <span className="text-xs font-bold text-white block">
                       {mod.name}
                     </span>
-                    <span className="text-[11px] text-slate-500 block">
+                    <span className="text-[11px] text-slate-400 block">
                       Tailored Integration
                     </span>
                   </div>
                   <div className={`w-5 h-5 rounded-lg border flex items-center justify-center shrink-0 mt-0.5 ${
-                    isSelected ? 'bg-orange-sms border-orange-sms text-white' : 'border-slate-300 bg-white'
+                    isSelected ? 'bg-orange-500 border-orange-500 text-white' : 'border-navy-700 bg-navy-900'
                   }`}>
                     {isSelected && <Check className="w-3.5 h-3.5" />}
                   </div>
@@ -212,10 +212,10 @@ export const PackagesPage: React.FC = () => {
             })}
           </div>
 
-          <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-sm text-slate-600 text-center sm:text-left">
+          <div className="pt-6 border-t border-navy-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-sm text-slate-300 text-center sm:text-left">
               {selectedModules.length > 0 ? (
-                <span>You selected <strong>{selectedModules.length} module(s)</strong> for your custom project.</span>
+                <span>You selected <strong className="text-orange-400">{selectedModules.length} module(s)</strong> for your custom project.</span>
               ) : (
                 <span>Select modules above to construct your custom proposal.</span>
               )}
@@ -229,7 +229,7 @@ export const PackagesPage: React.FC = () => {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-orange-sms to-orange-sms-hover text-white font-extrabold text-sm flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] transition"
+              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-extrabold text-sm flex items-center gap-2 shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02] transition"
             >
               <MessageSquare className="w-4 h-4" />
               <span>Request Custom Scope on WhatsApp</span>

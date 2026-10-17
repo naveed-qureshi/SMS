@@ -5,13 +5,15 @@
 @layer base {
   html {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: #1e293b;
-    background-color: #f8fafc;
+    color: #e2e8f0;
+    background-color: #050c18;
     scroll-behavior: smooth;
   }
   
   body {
     overflow-x: hidden;
+    background-color: #050c18;
+    color: #f1f5f9;
   }
 }
 

@@ -39,7 +39,7 @@ export const FinalCta: React.FC<FinalCtaProps> = ({ onOpenConsultation }) => {
         {/* Trust Badges */}
         <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs text-slate-300 font-semibold pt-2">
           <span className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Transparent Pakistani Rupee Pricing
+            <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Tailored Scopes & Transparent ROI
           </span>
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Direct 1-on-1 Consultation

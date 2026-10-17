@@ -12,10 +12,10 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-surface-50 to-surface-100 pt-10 sm:pt-16 pb-20 lg:pb-28 border-b border-slate-200/60">
+    <section className="relative overflow-hidden bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 pt-10 sm:pt-16 pb-20 lg:pb-28 border-b border-navy-800">
       {/* Subtle Animated Background Grid & Glow */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-orange-sms/10 to-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-dark-pattern opacity-40 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-orange-sms/15 to-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -24,36 +24,36 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Supporting Category Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-sms/10 border border-orange-sms/20 text-orange-sms font-bold text-xs uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-sms/15 border border-orange-sms/30 text-orange-sms font-bold text-xs uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Websites • E-Commerce • Marketing • SEO • AI • Automation</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-900 tracking-tight leading-[1.1] text-balance">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] text-balance">
               Build Your Business.{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-sms via-orange-600 to-amber-600 block mt-1">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-sms via-orange-400 to-amber-400 block mt-1">
                 Grow It Digitally.
               </span>
             </h1>
 
             {/* Supporting Headline */}
-            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
               From high-converting e-commerce storefronts and custom websites to automated operations and performance marketing — we engineer tailored digital solutions for your business.
             </p>
 
-            {/* SME Trust Anchors (No fixed prices, pure value) */}
-            <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 text-xs text-slate-500 font-semibold">
-              <span className="flex items-center gap-1.5 text-slate-700">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            {/* SME Trust Anchors */}
+            <div className="pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 text-xs text-slate-300 font-semibold">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 Tailored to Your Exact Scope
               </span>
-              <span className="flex items-center gap-1.5 text-slate-700">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 Direct WhatsApp Consultation
               </span>
-              <span className="flex items-center gap-1.5 text-slate-700">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 Lahore, Pakistan & Global
               </span>
             </div>
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                   else window.location.href = '/contact-us';
                 })}
-                className="w-full sm:w-auto px-7 py-4 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-orange-sms to-orange-sms-hover shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-orange-sms to-orange-sms-hover shadow-lg hover:shadow-orange-sms/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>Request a Custom Quote</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -76,34 +76,28 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
                 href={getWhatsAppUrl("Hi Smart Multi Solutions team, I'd like to discuss a custom digital project for my business.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-7 py-4 rounded-xl text-base font-bold text-navy-900 bg-white border border-slate-300 hover:border-orange-sms hover:bg-slate-50 shadow-sm hover:shadow transition flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl text-base font-bold text-white bg-navy-900 border border-navy-700 hover:border-orange-sms hover:bg-navy-850 shadow-sm hover:shadow transition flex items-center justify-center gap-2"
               >
-                <MessageSquare className="w-5 h-5 text-emerald-600" />
+                <MessageSquare className="w-5 h-5 text-emerald-400" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
 
-            {/* Genuine Client Proof Snippet */}
-            <div className="pt-4 border-t border-slate-200/80 flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-500">
+            {/* Genuine Client Proof Snippet with Monogram Avatars for clean rendering */}
+            <div className="pt-4 border-t border-navy-800 flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-400">
               <div className="flex -space-x-2">
-                <img 
-                  src="https://smartmultisolutions.com/wp-content/uploads/2025/12/tariq.jpg" 
-                  alt="Muhammad Tariq - Edifier" 
-                  className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                />
-                <img 
-                  src="https://smartmultisolutions.com/wp-content/uploads/2025/12/Ammar-Rana.jpg" 
-                  alt="Ammar Rana - SkyVolt" 
-                  className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                />
-                <img 
-                  src="https://smartmultisolutions.com/wp-content/uploads/2025/12/zain.jpg" 
-                  alt="Zain Abbas - Edifier" 
-                  className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                />
+                <div className="w-8 h-8 rounded-full bg-slate-900 text-white font-black text-[11px] flex items-center justify-center border-2 border-navy-950 shadow">
+                  ED
+                </div>
+                <div className="w-8 h-8 rounded-full bg-amber-500 text-navy-950 font-black text-[11px] flex items-center justify-center border-2 border-navy-950 shadow">
+                  SV
+                </div>
+                <div className="w-8 h-8 rounded-full bg-red-600 text-white font-black text-[11px] flex items-center justify-center border-2 border-navy-950 shadow">
+                  SF
+                </div>
               </div>
               <div>
-                <span className="font-bold text-slate-800">Trusted by industry leaders:</span> <span className="font-bold text-navy-900">Edifier.pk</span>, <span className="font-bold text-navy-900">SkyVolt.pk</span>, <span className="font-bold text-navy-900">Shan Foods</span> & <span className="font-bold text-navy-900">Serwizo</span>.
+                <span className="font-bold text-slate-300">Trusted by industry leaders:</span> <span className="font-bold text-white">Edifier.pk</span>, <span className="font-bold text-white">SkyVolt.pk</span>, <span className="font-bold text-white">Shan Foods</span> & <span className="font-bold text-white">Serwizo</span>.
               </div>
             </div>
 

@@ -84,18 +84,18 @@ export const GrowthTimeline: React.FC = () => {
   ];
 
   return (
-    <section id="process" className="py-24 bg-surface-50 border-b border-slate-200/70">
+    <section id="process" className="py-24 bg-navy-900 border-b border-navy-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/10 px-3.5 py-1 rounded-full border border-orange-sms/20">
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/15 px-3.5 py-1 rounded-full border border-orange-sms/30">
             Step-by-Step Methodology
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             How We Help You Grow
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             A structured, transparent six-stage process that removes guesswork from your digital transformation.
           </p>
         </div>
@@ -112,8 +112,8 @@ export const GrowthTimeline: React.FC = () => {
                 onClick={() => setSelectedPhase(idx)}
                 className={`p-6 sm:p-7 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-white border-orange-sms shadow-xl ring-2 ring-orange-sms/20 -translate-y-1'
-                    : 'bg-white/80 border-slate-200 hover:border-slate-300 hover:bg-white'
+                    ? 'bg-navy-950 border-orange-sms shadow-2xl ring-2 ring-orange-sms/30 -translate-y-1'
+                    : 'bg-navy-950/80 border-navy-800 hover:border-navy-700 hover:bg-navy-950'
                 }`}
               >
                 <div>
@@ -121,34 +121,34 @@ export const GrowthTimeline: React.FC = () => {
                     <span className="text-2xl font-black font-mono text-orange-sms">
                       {phase.number}
                     </span>
-                    <div className={`p-2.5 rounded-xl ${isSelected ? 'bg-orange-sms text-white' : 'bg-slate-100 text-slate-700'}`}>
+                    <div className={`p-2.5 rounded-xl ${isSelected ? 'bg-orange-sms text-white' : 'bg-navy-900 text-slate-300 border border-navy-800'}`}>
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-extrabold text-navy-900 mb-1">
+                  <h3 className="text-lg font-extrabold text-white mb-1">
                     {phase.title}
                   </h3>
                   <div className="text-xs font-bold text-orange-sms mb-3">
                     {phase.subtitle}
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-300 leading-relaxed mb-4">
                     {phase.description}
                   </p>
 
-                  <div className="space-y-1.5 pt-3 border-t border-slate-100">
+                  <div className="space-y-1.5 pt-3 border-t border-navy-850">
                     {phase.details.map((d, i) => (
-                      <div key={i} className="flex items-start gap-1.5 text-xs text-slate-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-1.5 text-xs text-slate-300">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                         <span>{d}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-5 pt-3 text-[11px] font-bold text-slate-400 flex items-center justify-between">
+                <div className="mt-5 pt-3 border-t border-navy-850 text-[11px] font-bold text-slate-400 flex items-center justify-between">
                   <span>Stage {phase.number} / 06</span>
-                  <span className={`${isSelected ? 'text-orange-sms' : 'text-slate-500'}`}>
+                  <span className={`${isSelected ? 'text-orange-sms' : 'text-slate-400'}`}>
                     {isSelected ? 'Active Focus' : 'Learn More →'}
                   </span>
                 </div>

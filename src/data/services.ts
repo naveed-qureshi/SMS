@@ -439,6 +439,44 @@ export const SERVICES_DATA: ServiceCategory[] = [
     icon: 'Cpu',
     services: [
       {
+        id: 'ai-video-ads',
+        slug: 'ai-generated-video-ads',
+        name: 'AI Generated Video Ads',
+        shortDesc: 'High-converting, studio-grade video commercials, avatars, and UGC ads built for Meta, TikTok & YouTube.',
+        fullDesc: 'Supercharge your digital advertising ROAS with AI-generated video ads. We combine persuasive direct-response scripts, ultra-realistic AI voiceovers, photorealistic avatars, and high-impact motion graphics to deliver high-converting video creatives in days instead of weeks—at a fraction of traditional production costs.',
+        category: 'ai-automation',
+        categoryTitle: 'AI & Automation',
+        iconName: 'Video',
+        popular: true,
+        highlights: [
+          'Direct-response scripts tailored for Pakistani and international audiences',
+          'Hyper-realistic AI human avatars and multilingual voiceovers (Urdu & English)',
+          '9:16 vertical reels & 16:9 widescreen formats optimized for social ad platforms',
+          'Fast turnaround testing multiple hooks to dramatically boost Meta & TikTok ad ROI'
+        ],
+        deliverables: [
+          'High-definition MP4 commercial creatives ready for ad manager upload',
+          'Engaging video captions, sound effects, and call-to-action cards',
+          'Hook variation testing assets (multiple opening hooks per campaign)',
+          'Complete commercial usage rights for all digital ad platforms'
+        ],
+        whoNeedsThis: [
+          'E-commerce brands seeking higher ROAS on Meta & TikTok',
+          'B2B & corporate service providers needing polished video explainers',
+          'Solar, tech, real estate, and clinic brands wanting modern video marketing'
+        ],
+        faqs: [
+          {
+            question: 'How fast can an AI video ad be created?',
+            answer: 'Typically between 48 to 72 hours from script approval, compared to 2-4 weeks for conventional camera production.'
+          },
+          {
+            question: 'Can the video have Urdu voiceover and localized accents?',
+            answer: 'Yes! We support natural Pakistani Urdu accents, international British/American accents, and bilingual scripts.'
+          }
+        ]
+      },
+      {
         id: 'ai-solutions',
         slug: 'ai-solutions',
         name: 'AI Business Solutions',

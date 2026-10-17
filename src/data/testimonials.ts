@@ -15,7 +15,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: 'Director',
     company: 'Edifier Pakistan (edifier.pk)',
     quote: 'Smart Multi Solutions delivered a professional website and effective marketing support. Their team was reliable, responsive, and aligned everything perfectly with our brand vision and goals.',
-    avatar: 'https://smartmultisolutions.com/wp-content/uploads/2025/12/tariq.jpg',
+    avatar: '/Clients/Umair.jpg',
     rating: 5
   },
   {
@@ -24,7 +24,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: 'CEO',
     company: 'SkyVolt (skyvolt.pk)',
     quote: 'Smart Multi Solutions delivered excellent service with quick turnaround and great communication. Their tailored approach truly improved our customer inquiries and workflow efficiency.',
-    avatar: 'https://smartmultisolutions.com/wp-content/uploads/2025/12/Ammar-Rana.jpg',
+    avatar: '/Clients/Ammar.jpg',
     rating: 5
   },
   {
@@ -33,7 +33,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: 'eCommerce Lead',
     company: 'Edifier Pakistan',
     quote: 'Collaborating with Smart Multi Solutions was a smooth and stress-free experience. They understood our custom requirements and executed the store architecture with precision.',
-    avatar: 'https://smartmultisolutions.com/wp-content/uploads/2025/12/zain.jpg',
+    avatar: '/Clients/Hamdan.jpg',
     rating: 5
   },
   {
@@ -42,7 +42,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: 'Product Operations',
     company: 'Organity Electronics (organityengineering.com)',
     quote: 'The team developed a clean, technical digital portal that precisely showcases our hardware engineering capabilities to national and international clients.',
-    avatar: 'https://smartmultisolutions.com/wp-content/uploads/2025/12/awais.jpg',
+    avatar: '/Clients/Oun.jpg',
     rating: 5
   },
   {
@@ -51,7 +51,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: 'Platform Strategy',
     company: 'Serwizo (serwizo.com)',
     quote: 'From marketplace interface design to seamless WhatsApp inquiry integration, SMS provided an end-to-end digital partner experience tailored to our business model.',
-    avatar: 'https://smartmultisolutions.com/wp-content/uploads/2025/12/tariq.jpg',
+    avatar: '/Clients/Umair.jpg',
     rating: 5
   }
 ];

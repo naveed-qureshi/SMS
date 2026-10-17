@@ -64,14 +64,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3' 
-        : 'bg-white border-b border-slate-100 py-4'
+        ? 'bg-navy-950/95 backdrop-blur-md shadow-lg border-b border-navy-800 py-3' 
+        : 'bg-navy-950 border-b border-navy-800/80 py-4'
     }`}>
       {/* Top micro-bar for quick local credibility */}
-      <div className="hidden lg:block border-b border-slate-100 pb-2 mb-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-xs text-slate-500 font-medium">
+      <div className="hidden lg:block border-b border-navy-800/80 pb-2 mb-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-xs text-slate-400 font-medium">
           <div className="flex items-center space-x-4">
-            <span className="flex items-center text-emerald-600">
+            <span className="flex items-center text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
               Digital Business Partner for Pakistani Startups & SMEs
             </span>
@@ -90,9 +90,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               href={getWhatsAppUrl("Hi SMS team, I'd like a free consultation on digital solutions.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-700 hover:text-emerald-800 transition font-semibold flex items-center gap-1"
+              className="text-emerald-400 hover:text-emerald-300 transition font-semibold flex items-center gap-1"
             >
-              <MessageSquare className="w-3 h-3 text-emerald-600" /> WhatsApp Direct
+              <MessageSquare className="w-3 h-3 text-emerald-400" /> WhatsApp Direct
             </a>
           </div>
         </div>
@@ -106,9 +106,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               <img 
                 src="/logo.png" 
                 alt="Smart Multi Solutions (SMS) Logo"
-                className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105 brightness-110"
                 onError={(e) => {
-                  // Fallback logo design in case image cannot load
                   e.currentTarget.style.display = 'none';
                   const fallback = document.getElementById('brand-fallback');
                   if (fallback) fallback.style.display = 'flex';
@@ -119,16 +118,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                   <span className="text-white">S</span><span className="text-orange-sms">M</span><span className="text-white">S</span>
                 </div>
                 <div>
-                  <span className="font-extrabold text-navy-900 text-lg leading-tight block">SMART MULTI</span>
+                  <span className="font-extrabold text-white text-lg leading-tight block">SMART MULTI</span>
                   <span className="text-[10px] tracking-wider text-orange-sms font-bold block uppercase">Solutions</span>
                 </div>
               </div>
             </div>
-            <div className="hidden sm:block border-l border-slate-200 pl-3">
-              <span className="text-xs uppercase tracking-wider font-extrabold text-navy-900 block">
+            <div className="hidden sm:block border-l border-navy-700 pl-3">
+              <span className="text-xs uppercase tracking-wider font-extrabold text-white block">
                 YOUR GROWTH PARTNER
               </span>
-              <span className="text-[11px] text-slate-500 font-medium block">
+              <span className="text-[11px] text-slate-400 font-medium block">
                 Build • Grow • Automate
               </span>
             </div>
@@ -140,8 +139,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               to="/" 
               className={`px-3 py-2 text-sm font-semibold rounded-md transition ${
                 location.pathname === '/' 
-                  ? 'text-orange-sms bg-orange-sms/5' 
-                  : 'text-slate-700 hover:text-navy-900 hover:bg-slate-50'
+                  ? 'text-orange-sms bg-orange-sms/10' 
+                  : 'text-slate-300 hover:text-white hover:bg-navy-900'
               }`}
             >
               Home
@@ -156,8 +155,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               <button 
                 className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold rounded-md transition ${
                   location.pathname.includes('/website') || location.pathname.includes('/seo') || location.pathname.includes('/ai') || location.pathname.includes('/business')
-                    ? 'text-orange-sms bg-orange-sms/5'
-                    : 'text-slate-700 hover:text-navy-900 hover:bg-slate-50'
+                    ? 'text-orange-sms bg-orange-sms/10'
+                    : 'text-slate-300 hover:text-white hover:bg-navy-900'
                 }`}
                 onClick={() => setSolutionsDropdownOpen(!solutionsDropdownOpen)}
                 aria-expanded={solutionsDropdownOpen}
@@ -168,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
               {/* Dropdown Box */}
               {solutionsDropdownOpen && (
-                <div className="absolute top-full left-0 w-80 lg:w-96 bg-white rounded-xl shadow-xl border border-slate-100 p-3 mt-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 w-80 lg:w-96 bg-navy-900 rounded-xl shadow-2xl border border-navy-700 p-3 mt-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5">
                     Explore By Business Stage
                   </div>
@@ -179,17 +178,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                         <Link 
                           key={idx}
                           to={item.link}
-                          className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 transition group"
+                          className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-navy-800 transition group"
                         >
-                          <div className={`p-2 rounded-lg shrink-0 ${item.color}`}>
+                          <div className="p-2 rounded-lg shrink-0 bg-navy-800 text-orange-sms border border-navy-700">
                             <Icon className="w-5 h-5" />
                           </div>
                           <div>
-                            <div className="text-sm font-bold text-slate-800 group-hover:text-orange-sms transition flex items-center gap-1">
+                            <div className="text-sm font-bold text-slate-200 group-hover:text-orange-sms transition flex items-center gap-1">
                               {item.title}
                               <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-orange-sms" />
                             </div>
-                            <p className="text-xs text-slate-500 leading-snug">
+                            <p className="text-xs text-slate-400 leading-snug">
                               {item.desc}
                             </p>
                           </div>
@@ -197,8 +196,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                       );
                     })}
                   </div>
-                  <div className="mt-2 pt-2 border-t border-slate-100 px-3 flex justify-between items-center text-xs">
-                    <span className="text-slate-500 font-medium">All 4 digital pillars</span>
+                  <div className="mt-2 pt-2 border-t border-navy-800 px-3 flex justify-between items-center text-xs">
+                    <span className="text-slate-400 font-medium">All 4 digital pillars</span>
                     <Link to="/solutions" className="text-orange-sms font-bold hover:underline">
                       View All Solutions →
                     </Link>
@@ -211,8 +210,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               to="/solutions" 
               className={`px-3 py-2 text-sm font-semibold rounded-md transition ${
                 location.pathname === '/solutions' 
-                  ? 'text-orange-sms bg-orange-sms/5' 
-                  : 'text-slate-700 hover:text-navy-900 hover:bg-slate-50'
+                  ? 'text-orange-sms bg-orange-sms/10' 
+                  : 'text-slate-300 hover:text-white hover:bg-navy-900'
               }`}
             >
               Solutions
@@ -222,8 +221,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               to="/portfolio" 
               className={`px-3 py-2 text-sm font-semibold rounded-md transition ${
                 location.pathname === '/portfolio' 
-                  ? 'text-orange-sms bg-orange-sms/5' 
-                  : 'text-slate-700 hover:text-navy-900 hover:bg-slate-50'
+                  ? 'text-orange-sms bg-orange-sms/10' 
+                  : 'text-slate-300 hover:text-white hover:bg-navy-900'
               }`}
             >
               Portfolio
@@ -233,8 +232,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               to="/about-us" 
               className={`px-3 py-2 text-sm font-semibold rounded-md transition ${
                 location.pathname === '/about-us' 
-                  ? 'text-orange-sms bg-orange-sms/5' 
-                  : 'text-slate-700 hover:text-navy-900 hover:bg-slate-50'
+                  ? 'text-orange-sms bg-orange-sms/10' 
+                  : 'text-slate-300 hover:text-white hover:bg-navy-900'
               }`}
             >
               About
@@ -244,8 +243,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               to="/resources" 
               className={`px-3 py-2 text-sm font-semibold rounded-md transition ${
                 location.pathname === '/resources' 
-                  ? 'text-orange-sms bg-orange-sms/5' 
-                  : 'text-slate-700 hover:text-navy-900 hover:bg-slate-50'
+                  ? 'text-orange-sms bg-orange-sms/10' 
+                  : 'text-slate-300 hover:text-white hover:bg-navy-900'
               }`}
             >
               Resources
@@ -255,8 +254,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               to="/contact-us" 
               className={`px-3 py-2 text-sm font-semibold rounded-md transition ${
                 location.pathname === '/contact-us' 
-                  ? 'text-orange-sms bg-orange-sms/5' 
-                  : 'text-slate-700 hover:text-navy-900 hover:bg-slate-50'
+                  ? 'text-orange-sms bg-orange-sms/10' 
+                  : 'text-slate-300 hover:text-white hover:bg-navy-900'
               }`}
             >
               Contact
@@ -303,16 +302,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-white border-b border-slate-200 shadow-2xl p-4 max-h-[85vh] overflow-y-auto animate-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden fixed inset-x-0 top-[65px] bg-navy-950 border-b border-navy-800 shadow-2xl p-4 max-h-[85vh] overflow-y-auto animate-in slide-in-from-top-4 duration-200 text-white">
           <div className="flex flex-col space-y-2">
             <Link 
               to="/" 
-              className="px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 flex items-center justify-between"
+              className="px-3 py-2.5 rounded-lg text-base font-bold text-white hover:bg-navy-900 flex items-center justify-between"
             >
               <span>Home</span>
             </Link>
 
-            <div className="border-y border-slate-100 py-2">
+            <div className="border-y border-navy-850 py-2">
               <div className="px-3 py-1 text-xs uppercase font-extrabold text-orange-sms tracking-wider">
                 Solutions & Services
               </div>
@@ -321,7 +320,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                   <Link
                     key={idx}
                     to={cat.link}
-                    className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-orange-sms hover:bg-slate-50 rounded-lg flex items-center justify-between"
+                    className="px-3 py-2 text-sm font-semibold text-slate-300 hover:text-orange-sms hover:bg-navy-900 rounded-lg flex items-center justify-between"
                   >
                     <span>{cat.title}</span>
                     <span className="text-xs text-slate-400">Explore</span>
@@ -332,36 +331,36 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
             <Link 
               to="/solutions" 
-              className="px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50 flex items-center justify-between"
+              className="px-3 py-2.5 rounded-lg text-base font-bold text-white hover:bg-navy-900 flex items-center justify-between"
             >
               <span>Solutions & Services</span>
-              <span className="text-xs bg-orange-sms-light text-orange-sms px-2 py-0.5 rounded-full font-bold">Custom Scope</span>
+              <span className="text-xs bg-orange-sms/20 text-orange-sms px-2 py-0.5 rounded-full font-bold">Custom Scope</span>
             </Link>
 
             <Link 
               to="/portfolio" 
-              className="px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50"
+              className="px-3 py-2.5 rounded-lg text-base font-bold text-white hover:bg-navy-900"
             >
               Verified Portfolio
             </Link>
 
             <Link 
               to="/about-us" 
-              className="px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50"
+              className="px-3 py-2.5 rounded-lg text-base font-bold text-white hover:bg-navy-900"
             >
               About Smart Multi Solutions
             </Link>
 
             <Link 
               to="/resources" 
-              className="px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50"
+              className="px-3 py-2.5 rounded-lg text-base font-bold text-white hover:bg-navy-900"
             >
               Knowledge & Guides
             </Link>
 
             <Link 
               to="/contact-us" 
-              className="px-3 py-2.5 rounded-lg text-base font-bold text-slate-800 hover:bg-slate-50"
+              className="px-3 py-2.5 rounded-lg text-base font-bold text-white hover:bg-navy-900"
             >
               Contact Us
             </Link>

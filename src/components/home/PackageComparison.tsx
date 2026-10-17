@@ -6,28 +6,28 @@ export const PackageComparison: React.FC = () => {
   const [selectedMobilePackage, setSelectedMobilePackage] = useState<string>('ecommerce-solution');
 
   return (
-    <section id="comparison" className="py-20 bg-white border-b border-slate-200/70">
+    <section id="comparison" className="py-20 bg-navy-950 border-b border-navy-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+          <span className="text-xs font-bold uppercase tracking-widest text-orange-sms bg-orange-sms/15 px-3 py-1 rounded-full border border-orange-sms/30">
             Capabilities Matrix
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Comprehensive Capabilities Breakdown
           </h2>
-          <p className="text-base text-slate-600">
+          <p className="text-base text-slate-300">
             Compare our specialized operational pillars side-by-side to understand which solution matches your business requirements.
           </p>
         </div>
 
         {/* Desktop View: Full Responsive Comparison Table */}
-        <div className="hidden lg:block overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
+        <div className="hidden lg:block overflow-x-auto rounded-2xl border border-navy-800 shadow-xl bg-navy-900">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-surface-50 border-b border-slate-200">
-                <th className="py-5 px-6 font-extrabold text-sm text-navy-900 w-1/4">
+              <tr className="bg-navy-950 border-b border-navy-800">
+                <th className="py-5 px-6 font-extrabold text-sm text-white w-1/4">
                   Feature / Capability
                 </th>
                 {PACKAGES_DATA.map((pkg) => (
@@ -35,8 +35,8 @@ export const PackageComparison: React.FC = () => {
                     key={pkg.id} 
                     className={`py-5 px-4 font-bold text-center w-[15%] ${
                       pkg.id === 'ecommerce-solution' 
-                        ? 'bg-orange-sms/10 text-navy-900 border-x border-orange-sms/30' 
-                        : 'text-slate-800'
+                        ? 'bg-orange-sms/10 text-white border-x border-orange-sms/30' 
+                        : 'text-slate-200'
                     }`}
                   >
                     <div className="text-sm font-extrabold">{pkg.name}</div>
@@ -45,15 +45,15 @@ export const PackageComparison: React.FC = () => {
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 text-xs">
+            <tbody className="divide-y divide-navy-800 text-xs text-slate-300">
               {COMPARISON_DIMENSIONS.map((dim, idx) => (
                 <tr 
                   key={idx} 
-                  className={`hover:bg-slate-50/80 transition ${
-                    idx % 2 === 0 ? 'bg-white' : 'bg-surface-50/50'
+                  className={`hover:bg-navy-850/80 transition ${
+                    idx % 2 === 0 ? 'bg-navy-900' : 'bg-navy-950/60'
                   }`}
                 >
-                  <td className="py-4 px-6 font-semibold text-navy-900">
+                  <td className="py-4 px-6 font-semibold text-white">
                     {dim.name}
                   </td>
                   {PACKAGES_DATA.map((pkg) => {
@@ -69,16 +69,16 @@ export const PackageComparison: React.FC = () => {
                       >
                         {typeof val === 'boolean' ? (
                           val ? (
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-700">
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800">
                               <Check className="w-3.5 h-3.5" />
                             </span>
                           ) : (
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 text-slate-300">
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-navy-800 text-slate-500">
                               <X className="w-3.5 h-3.5" />
                             </span>
                           )
                         ) : (
-                          <span className={`text-xs ${isEcom ? 'font-bold text-navy-900' : 'text-slate-700'}`}>
+                          <span className={`text-xs ${isEcom ? 'font-bold text-white' : 'text-slate-300'}`}>
                             {val}
                           </span>
                         )}
@@ -89,8 +89,8 @@ export const PackageComparison: React.FC = () => {
               ))}
             </tbody>
             <tfoot>
-              <tr className="bg-surface-50 border-t border-slate-200">
-                <td className="py-5 px-6 font-bold text-xs text-slate-500">
+              <tr className="bg-navy-950 border-t border-navy-800">
+                <td className="py-5 px-6 font-bold text-xs text-slate-400">
                   Ready to proceed?
                 </td>
                 {PACKAGES_DATA.map((pkg) => (

@@ -9,6 +9,7 @@ import { ConsultationWizard } from '../components/home/ConsultationWizard';
 import { ServicesOverview } from '../components/home/ServicesOverview';
 import { GrowthTimeline } from '../components/home/GrowthTimeline';
 import { PortfolioSection } from '../components/home/PortfolioSection';
+import { AiVideoAdsSection } from '../components/home/AiVideoAdsSection';
 import { WhySMS } from '../components/home/WhySMS';
 import { TestimonialsSection } from '../components/home/TestimonialsSection';
 import { WhatWeBuildGrid } from '../components/home/WhatWeBuildGrid';
@@ -54,22 +55,25 @@ export const HomePage: React.FC = () => {
       {/* 10. Visual Case Studies / Portfolio */}
       <PortfolioSection />
 
-      {/* 11. Why Smart Multi Solutions */}
+      {/* 11. AI Generated Video Ads Showcase */}
+      <AiVideoAdsSection />
+
+      {/* 12. Why Smart Multi Solutions */}
       <WhySMS />
 
-      {/* 12. Genuine Testimonials */}
+      {/* 13. Genuine Testimonials */}
       <TestimonialsSection />
 
-      {/* 13. "What Can We Build For You?" Visual Grid */}
+      {/* 14. "What Can We Build For You?" Visual Grid */}
       <WhatWeBuildGrid />
 
-      {/* 14. Digital Business Resources & Blog */}
+      {/* 15. Digital Business Resources & Blog */}
       <BlogPreview />
 
-      {/* 15. SEO-Friendly FAQ Accordion */}
+      {/* 16. SEO-Friendly FAQ Accordion */}
       <FaqSection />
 
-      {/* 16. Final High-Conversion CTA Banner */}
+      {/* 17. Final High-Conversion CTA Banner */}
       <FinalCta onOpenConsultation={scrollToConsultation} />
     </main>
   );

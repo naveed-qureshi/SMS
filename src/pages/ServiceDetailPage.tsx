@@ -27,41 +27,42 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
     .slice(0, 3);
 
   return (
-    <div className="bg-surface-50 min-h-screen">
+    <div className="bg-navy-950 text-slate-100 min-h-screen pt-24 pb-20">
       
       {/* Breadcrumbs */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-slate-500 flex items-center gap-2">
-          <Link to="/" className="hover:text-orange-sms">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-          <Link to="/solutions" className="hover:text-orange-sms">{service.categoryTitle}</Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-          <span className="text-slate-800 font-bold">{service.name}</span>
+      <div className="bg-navy-950/90 border-b border-navy-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-slate-400 flex items-center gap-2">
+          <Link to="/" className="hover:text-orange-400">Home</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+          <Link to="/solutions" className="hover:text-orange-400">{service.categoryTitle}</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+          <span className="text-white font-bold">{service.name}</span>
         </div>
       </div>
 
       {/* Hero Banner */}
-      <section className="bg-gradient-to-b from-white to-surface-100 py-16 sm:py-20 border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-sms/10 text-orange-sms font-bold text-xs uppercase tracking-wider">
+      <section className="relative overflow-hidden bg-gradient-to-b from-navy-900 to-navy-950 py-16 sm:py-20 border-b border-navy-800">
+        <div className="absolute inset-0 bg-grid-dark-pattern opacity-15 pointer-events-none" />
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 font-bold text-xs uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{service.categoryTitle} • Pakistan & Global</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-navy-900 tracking-tight leading-tight">
-            {service.name} in Pakistan
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            {service.name} <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">in Pakistan</span>
           </h1>
 
-          <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             {service.fullDesc}
           </p>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={getWhatsAppUrl(`Hi Smart Multi Solutions team, I need information and pricing for: ${service.name}.`)}
+              href={getWhatsAppUrl(`Hi Smart Multi Solutions team, I need information and custom proposal for: ${service.name}.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-sms to-orange-sms-hover text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-md hover:shadow-lg transition"
+              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-lg hover:shadow-orange-500/25 transition"
             >
               <span>Get Free Consultation for {service.name}</span>
               <ArrowRight className="w-4 h-4" />
@@ -69,9 +70,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
 
             <a
               href={`tel:${COMPANY_CONTACT.phone.replace(/\s+/g, '')}`}
-              className="px-5 py-3.5 rounded-xl bg-white border border-slate-300 hover:bg-slate-50 text-navy-900 font-bold text-xs sm:text-sm flex items-center gap-2 shadow-sm transition"
+              className="px-5 py-3.5 rounded-xl bg-navy-900 hover:bg-navy-850 border border-navy-750 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md transition"
             >
-              <Phone className="w-4 h-4 text-orange-sms" />
+              <Phone className="w-4 h-4 text-orange-400" />
               <span>{COMPANY_CONTACT.phone}</span>
             </a>
           </div>
@@ -86,29 +87,29 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
           <div className="lg:col-span-8 space-y-12">
             
             {/* Highlights Section */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-              <h2 className="text-2xl font-extrabold text-navy-900">
+            <div className="bg-navy-900/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-navy-800 shadow-xl space-y-6">
+              <h2 className="text-2xl font-extrabold text-white">
                 Key Highlights & Capabilities
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.highlights.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-surface-50 border border-slate-100">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm font-semibold text-slate-800">{item}</span>
+                  <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-navy-950/80 border border-navy-800">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm font-semibold text-slate-200">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Deliverables Section */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-              <h2 className="text-2xl font-extrabold text-navy-900">
+            <div className="bg-navy-900/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-navy-800 shadow-xl space-y-6">
+              <h2 className="text-2xl font-extrabold text-white">
                 What We Deliver
               </h2>
               <ul className="space-y-3">
                 {service.deliverables.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-700">
-                    <span className="w-6 h-6 rounded-full bg-orange-sms/10 text-orange-sms font-bold flex items-center justify-center shrink-0 text-xs">
+                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
+                    <span className="w-6 h-6 rounded-full bg-orange-500/15 border border-orange-500/25 text-orange-400 font-bold flex items-center justify-center shrink-0 text-xs">
                       {idx + 1}
                     </span>
                     <span>{item}</span>
@@ -118,13 +119,13 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
             </div>
 
             {/* Who Needs This Section */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-              <h2 className="text-2xl font-extrabold text-navy-900">
+            <div className="bg-navy-900/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-navy-800 shadow-xl space-y-6">
+              <h2 className="text-2xl font-extrabold text-white">
                 Who Needs This Solution?
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {service.whoNeedsThis.map((who, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 font-medium">
+                  <div key={idx} className="p-4 rounded-xl bg-navy-950/80 border border-navy-800 text-xs sm:text-sm text-slate-300 font-medium">
                     {who}
                   </div>
                 ))}
@@ -133,17 +134,17 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
 
             {/* Service-Specific FAQs */}
             {service.faqs.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-                <h2 className="text-2xl font-extrabold text-navy-900">
+              <div className="bg-navy-900/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-navy-800 shadow-xl space-y-6">
+                <h2 className="text-2xl font-extrabold text-white">
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-4">
                   {service.faqs.map((faq, idx) => (
-                    <div key={idx} className="p-4 rounded-xl bg-surface-50 border border-slate-200">
-                      <h3 className="font-bold text-sm text-navy-900 mb-2">
+                    <div key={idx} className="p-4 rounded-xl bg-navy-950/80 border border-navy-800">
+                      <h3 className="font-bold text-sm text-white mb-2">
                         {faq.question}
                       </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed">
+                      <p className="text-xs text-slate-300 leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -158,8 +159,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
           <div className="lg:col-span-4 space-y-6">
             
             {/* Consultation Widget */}
-            <div className="bg-navy-900 text-white rounded-2xl p-6 shadow-xl border border-navy-800 space-y-4 sticky top-24">
-              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-orange-sms/20 text-orange-sms text-[11px] font-bold">
+            <div className="bg-navy-900 text-white rounded-2xl p-6 shadow-2xl border border-navy-800 space-y-4 sticky top-24">
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-orange-500/20 text-orange-400 text-[11px] font-bold border border-orange-500/30">
                 <Sparkles className="w-3 h-3" />
                 <span>Talk to an Advisor</span>
               </div>
@@ -185,7 +186,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
 
                 <Link
                   to="/contact-us"
-                  className="w-full py-3 px-4 rounded-xl bg-orange-sms hover:bg-orange-sms-hover text-white font-bold text-xs flex items-center justify-center gap-2 transition"
+                  className="w-full py-3 px-4 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs flex items-center justify-center gap-2 transition shadow-md"
                 >
                   <span>Request Custom Scope</span>
                   <ArrowRight className="w-4 h-4" />
@@ -201,8 +202,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
 
             {/* Related Services in Category */}
             {relatedServices.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
-                <h4 className="text-sm font-extrabold text-navy-900 uppercase tracking-wider">
+              <div className="bg-navy-900/80 backdrop-blur-sm rounded-2xl p-6 border border-navy-800 shadow-xl space-y-4">
+                <h4 className="text-sm font-extrabold text-white uppercase tracking-wider">
                   Related {service.categoryTitle} Services
                 </h4>
                 <div className="space-y-2">
@@ -210,13 +211,13 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ customSlug
                     <Link
                       key={rel.id}
                       to={`/${rel.slug}`}
-                      className="block p-3 rounded-xl hover:bg-surface-50 border border-transparent hover:border-slate-200 transition"
+                      className="block p-3 rounded-xl hover:bg-navy-850 border border-transparent hover:border-navy-750 transition"
                     >
-                      <div className="text-xs font-bold text-navy-900 hover:text-orange-sms flex items-center justify-between">
+                      <div className="text-xs font-bold text-slate-200 hover:text-orange-400 flex items-center justify-between">
                         <span>{rel.name}</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                        <ArrowRight className="w-3.5 h-3.5 text-slate-500" />
                       </div>
-                      <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-1">
+                      <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-1">
                         {rel.shortDesc}
                       </p>
                     </Link>

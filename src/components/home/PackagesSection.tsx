@@ -8,19 +8,19 @@ interface PackagesSectionProps {
 
 export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackage }) => {
   return (
-    <section id="solutions" className="py-24 bg-surface-50 relative">
+    <section id="solutions" className="py-24 bg-navy-900 border-b border-navy-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-sms/10 border border-orange-sms/20 text-orange-sms font-bold text-xs uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-sms/15 border border-orange-sms/30 text-orange-sms font-bold text-xs uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Tailored Digital Capabilities</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
             Tailored Solutions Built for Your Business
           </h2>
-          <p className="text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-lg text-slate-300 leading-relaxed font-normal">
             Every business has unique operational needs. We scope, design, and engineer custom digital solutions aligned with your goals.
           </p>
         </div>
@@ -36,8 +36,8 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackag
                 key={pkg.id}
                 className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between ${
                   isEcommerce
-                    ? 'bg-navy-900 text-white shadow-2xl border-2 border-orange-sms ring-4 ring-orange-sms/10 scale-100 lg:-translate-y-2'
-                    : 'bg-white text-slate-800 border border-slate-200 shadow-sm hover:shadow-xl hover:border-slate-300'
+                    ? 'bg-navy-950 text-white shadow-2xl border-2 border-orange-sms ring-4 ring-orange-sms/20 scale-100 lg:-translate-y-2'
+                    : 'bg-navy-950/90 text-slate-100 border border-navy-800 shadow-lg hover:shadow-2xl hover:border-navy-700'
                 }`}
               >
                 {/* Badge */}
