@@ -1,0 +1,171 @@
+import React from 'react';
+import { Check, Sparkles, MessageSquare, ArrowRight, HelpCircle, ShieldCheck } from 'lucide-react';
+import { PACKAGES_DATA, getWhatsAppUrl } from '../../data/packages';
+
+interface PackagesSectionProps {
+  onSelectPackage?: (packageId: string) => void;
+}
+
+export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackage }) => {
+  return (
+    <section id="solutions" className="py-24 bg-surface-50 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-sms/10 border border-orange-sms/20 text-orange-sms font-bold text-xs uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Tailored Digital Capabilities</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight">
+            Tailored Solutions Built for Your Business
+          </h2>
+          <p className="text-lg text-slate-600 leading-relaxed font-normal">
+            Every business has unique operational needs. We scope, design, and engineer custom digital solutions aligned with your goals.
+          </p>
+        </div>
+
+        {/* 5 Solutions Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
+          {PACKAGES_DATA.map((pkg) => {
+            const isEcommerce = pkg.id === 'ecommerce-solution';
+            const isPopular = pkg.isPopular;
+
+            return (
+              <div
+                key={pkg.id}
+                className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between ${
+                  isEcommerce
+                    ? 'bg-navy-900 text-white shadow-2xl border-2 border-orange-sms ring-4 ring-orange-sms/10 scale-100 lg:-translate-y-2'
+                    : 'bg-white text-slate-800 border border-slate-200 shadow-sm hover:shadow-xl hover:border-slate-300'
+                }`}
+              >
+                {/* Badge */}
+                {pkg.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className={`text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1 ${
+                      isEcommerce
+                        ? 'bg-gradient-to-r from-orange-sms to-amber-500 text-white'
+                        : isPopular
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-slate-100 text-slate-700 border border-slate-300'
+                    }`}>
+                      {isEcommerce && <Sparkles className="w-3 h-3" />}
+                      {pkg.badge}
+                    </span>
+                  </div>
+                )}
+
+                <div>
+                  {/* Title & Target Audience */}
+                  <div className="pt-2 mb-4">
+                    <h3 className={`text-xl font-extrabold tracking-tight ${isEcommerce ? 'text-white' : 'text-navy-900'}`}>
+                      {pkg.name}
+                    </h3>
+                    <p className={`text-xs mt-1 leading-snug ${isEcommerce ? 'text-slate-300' : 'text-slate-500'}`}>
+                      For {pkg.targetAudience}
+                    </p>
+                  </div>
+
+                  {/* Scope Badge */}
+                  <div className={`py-3 px-4 rounded-xl mb-5 ${isEcommerce ? 'bg-navy-800 border border-navy-700' : 'bg-surface-100 border border-slate-200'}`}>
+                    <div className="text-[11px] font-semibold text-slate-400">Pricing Model</div>
+                    <div className="flex items-baseline gap-1">
+                      <span className={`text-lg lg:text-xl font-extrabold tracking-tight ${isEcommerce ? 'text-orange-sms' : 'text-navy-900'}`}>
+                        {pkg.price}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Tagline */}
+                  <p className={`text-xs leading-relaxed mb-5 ${isEcommerce ? 'text-slate-300' : 'text-slate-600'}`}>
+                    {pkg.tagline}
+                  </p>
+
+                  {/* Feature Checklist */}
+                  <div className="space-y-2.5 pt-2 border-t border-slate-100 dark:border-navy-700">
+                    <div className={`text-[11px] font-bold uppercase tracking-wider ${isEcommerce ? 'text-orange-400' : 'text-slate-400'}`}>
+                      Core Capabilities:
+                    </div>
+                    <ul className="space-y-2">
+                      {pkg.features.map((feat, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-xs">
+                          <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
+                            isEcommerce ? 'text-orange-sms' : 'text-emerald-600'
+                          }`} />
+                          <span className={`${feat.highlighted ? (isEcommerce ? 'font-bold text-white' : 'font-bold text-navy-900') : (isEcommerce ? 'text-slate-300' : 'text-slate-600')}`}>
+                            {feat.text}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* CTA Action */}
+                <div className="pt-6 mt-6 border-t border-slate-100 dark:border-navy-700 space-y-2">
+                  <a
+                    href={getWhatsAppUrl(`Hi Smart Multi Solutions team, I want to request a tailored quote for: ${pkg.name}. Can we discuss the scope?`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full py-3 px-4 rounded-xl text-xs font-extrabold transition-all duration-200 flex items-center justify-center gap-2 ${
+                      isEcommerce
+                        ? 'bg-gradient-to-r from-orange-sms to-orange-sms-hover text-white shadow-lg hover:shadow-orange-sms/20 hover:scale-[1.02]'
+                        : 'bg-navy-900 text-white hover:bg-navy-800'
+                    }`}
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>{pkg.ctaText}</span>
+                  </a>
+
+                  <button
+                    onClick={() => {
+                      if (onSelectPackage) {
+                        onSelectPackage(pkg.id);
+                      } else {
+                        const el = document.getElementById('consultation-wizard');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className={`w-full py-2 text-center text-xs font-semibold rounded-lg transition ${
+                      isEcommerce ? 'text-slate-300 hover:text-white' : 'text-slate-500 hover:text-navy-900'
+                    }`}
+                  >
+                    Discuss in Wizard →
+                  </button>
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Custom Scope Help Banner */}
+        <div className="mt-16 bg-navy-900 rounded-2xl p-6 sm:p-10 text-white shadow-xl border border-navy-700 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-center md:text-left">
+            <div className="inline-flex items-center gap-1.5 text-xs text-orange-sms font-bold uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4" />
+              <span>100% Customized Proposals</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-extrabold">
+              Need a completely bespoke technical or marketing solution?
+            </h3>
+            <p className="text-sm text-slate-300 max-w-2xl">
+              We engineer custom workflows matching your exact inventory size, backend APIs, payment integrations, or enterprise operations.
+            </p>
+          </div>
+          <a
+            href={getWhatsAppUrl("Hi Smart Multi Solutions, I have custom business requirements. I would like to get a tailored consultation.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 px-8 py-4 rounded-xl text-sm font-extrabold text-navy-900 bg-white hover:bg-slate-100 shadow-lg hover:shadow-xl transition flex items-center gap-2"
+          >
+            <MessageSquare className="w-4 h-4 text-emerald-600" />
+            <span>Speak with a Consultant</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+};
