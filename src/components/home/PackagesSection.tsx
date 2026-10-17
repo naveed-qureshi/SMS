@@ -7,6 +7,15 @@ interface PackagesSectionProps {
 }
 
 export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackage }) => {
+  const [selectedId, setSelectedId] = React.useState<string>('ecommerce-solution');
+
+  const handleSelect = (pkgId: string) => {
+    setSelectedId(pkgId);
+    if (onSelectPackage) {
+      onSelectPackage(pkgId);
+    }
+  };
+
   return (
     <section id="solutions" className="py-24 bg-navy-900 border-b border-navy-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,36 +30,34 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackag
             Tailored Solutions Built for Your Business
           </h2>
           <p className="text-lg text-slate-300 leading-relaxed font-normal">
-            Every business has unique operational needs. We scope, design, and engineer custom digital solutions aligned with your goals.
+            Every business has unique operational needs. Click any solution below to explore tailored capabilities and scope options.
           </p>
         </div>
 
         {/* 5 Solutions Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
           {PACKAGES_DATA.map((pkg) => {
-            const isEcommerce = pkg.id === 'ecommerce-solution';
-            const isPopular = pkg.isPopular;
+            const isSelected = pkg.id === selectedId;
 
             return (
               <div
                 key={pkg.id}
-                className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between ${
-                  isEcommerce
-                    ? 'bg-navy-950 text-white shadow-2xl border-2 border-orange-sms ring-4 ring-orange-sms/20 scale-100 lg:-translate-y-2'
-                    : 'bg-navy-950/90 text-slate-100 border border-navy-800 shadow-lg hover:shadow-2xl hover:border-navy-700'
+                onClick={() => handleSelect(pkg.id)}
+                className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between cursor-pointer group ${
+                  isSelected
+                    ? 'bg-navy-950 text-white shadow-2xl border-2 border-orange-sms ring-4 ring-orange-sms/20 scale-100 lg:-translate-y-2 z-10'
+                    : 'bg-navy-950/80 hover:bg-navy-900/90 text-slate-100 border border-navy-800 hover:border-slate-600 shadow-lg hover:shadow-2xl'
                 }`}
               >
                 {/* Badge */}
                 {pkg.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className={`text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1 ${
-                      isEcommerce
-                        ? 'bg-gradient-to-r from-orange-sms to-amber-500 text-white'
-                        : isPopular
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-slate-100 text-slate-700 border border-slate-300'
+                      isSelected
+                        ? 'bg-gradient-to-r from-orange-sms to-amber-500 text-white shadow-md'
+                        : 'bg-navy-800 text-slate-300 border border-navy-700'
                     }`}>
-                      {isEcommerce && <Sparkles className="w-3 h-3" />}
+                      {isSelected && <Sparkles className="w-3 h-3 text-white" />}
                       {pkg.badge}
                     </span>
                   </div>
@@ -59,41 +66,41 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackag
                 <div>
                   {/* Title & Target Audience */}
                   <div className="pt-2 mb-4">
-                    <h3 className={`text-xl font-extrabold tracking-tight ${isEcommerce ? 'text-white' : 'text-navy-900'}`}>
+                    <h3 className={`text-xl font-extrabold tracking-tight ${isSelected ? 'text-white' : 'text-slate-100 group-hover:text-white'}`}>
                       {pkg.name}
                     </h3>
-                    <p className={`text-xs mt-1 leading-snug ${isEcommerce ? 'text-slate-300' : 'text-slate-500'}`}>
+                    <p className={`text-xs mt-1 leading-snug ${isSelected ? 'text-orange-200/90' : 'text-slate-400'}`}>
                       For {pkg.targetAudience}
                     </p>
                   </div>
 
                   {/* Scope Badge */}
-                  <div className={`py-3 px-4 rounded-xl mb-5 ${isEcommerce ? 'bg-navy-800 border border-navy-700' : 'bg-surface-100 border border-slate-200'}`}>
-                    <div className="text-[11px] font-semibold text-slate-400">Pricing Model</div>
+                  <div className={`py-3 px-4 rounded-xl mb-5 ${isSelected ? 'bg-navy-900 border border-orange-sms/40 shadow-inner' : 'bg-navy-900/80 border border-navy-800'}`}>
+                    <div className={`text-[11px] font-semibold ${isSelected ? 'text-orange-300' : 'text-slate-400'}`}>Pricing Model</div>
                     <div className="flex items-baseline gap-1">
-                      <span className={`text-lg lg:text-xl font-extrabold tracking-tight ${isEcommerce ? 'text-orange-sms' : 'text-navy-900'}`}>
+                      <span className={`text-lg lg:text-xl font-extrabold tracking-tight ${isSelected ? 'text-orange-sms' : 'text-slate-100'}`}>
                         {pkg.price}
                       </span>
                     </div>
                   </div>
 
                   {/* Tagline */}
-                  <p className={`text-xs leading-relaxed mb-5 ${isEcommerce ? 'text-slate-300' : 'text-slate-600'}`}>
+                  <p className={`text-xs leading-relaxed mb-5 ${isSelected ? 'text-slate-200' : 'text-slate-300'}`}>
                     {pkg.tagline}
                   </p>
 
                   {/* Feature Checklist */}
-                  <div className="space-y-2.5 pt-2 border-t border-slate-100 dark:border-navy-700">
-                    <div className={`text-[11px] font-bold uppercase tracking-wider ${isEcommerce ? 'text-orange-400' : 'text-slate-400'}`}>
+                  <div className="space-y-2.5 pt-2 border-t border-navy-800">
+                    <div className={`text-[11px] font-bold uppercase tracking-wider ${isSelected ? 'text-orange-400' : 'text-slate-400'}`}>
                       Core Capabilities:
                     </div>
                     <ul className="space-y-2">
                       {pkg.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs">
                           <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                            isEcommerce ? 'text-orange-sms' : 'text-emerald-600'
+                            isSelected ? 'text-orange-sms' : 'text-emerald-400'
                           }`} />
-                          <span className={`${feat.highlighted ? (isEcommerce ? 'font-bold text-white' : 'font-bold text-navy-900') : (isEcommerce ? 'text-slate-300' : 'text-slate-600')}`}>
+                          <span className={`${feat.highlighted ? (isSelected ? 'font-bold text-white' : 'font-bold text-slate-100') : (isSelected ? 'text-slate-200' : 'text-slate-300')}`}>
                             {feat.text}
                           </span>
                         </li>
@@ -103,15 +110,16 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackag
                 </div>
 
                 {/* CTA Action */}
-                <div className="pt-6 mt-6 border-t border-slate-100 dark:border-navy-700 space-y-2">
+                <div className="pt-6 mt-6 border-t border-navy-800 space-y-2">
                   <a
                     href={getWhatsAppUrl(`Hi Smart Multi Solutions team, I want to request a tailored quote for: ${pkg.name}. Can we discuss the scope?`)}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     className={`w-full py-3 px-4 rounded-xl text-xs font-extrabold transition-all duration-200 flex items-center justify-center gap-2 ${
-                      isEcommerce
-                        ? 'bg-gradient-to-r from-orange-sms to-orange-sms-hover text-white shadow-lg hover:shadow-orange-sms/20 hover:scale-[1.02]'
-                        : 'bg-navy-900 text-white hover:bg-navy-800'
+                      isSelected
+                        ? 'bg-gradient-to-r from-orange-sms to-orange-sms-hover text-white shadow-lg hover:shadow-orange-sms/30 hover:scale-[1.02]'
+                        : 'bg-navy-800 hover:bg-navy-750 text-slate-200 hover:text-white border border-navy-700'
                     }`}
                   >
                     <MessageSquare className="w-4 h-4" />
@@ -119,16 +127,14 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({ onSelectPackag
                   </a>
 
                   <button
-                    onClick={() => {
-                      if (onSelectPackage) {
-                        onSelectPackage(pkg.id);
-                      } else {
-                        const el = document.getElementById('consultation-wizard');
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
-                      }
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelect(pkg.id);
+                      const el = document.getElementById('consultation-wizard');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
                     className={`w-full py-2 text-center text-xs font-semibold rounded-lg transition ${
-                      isEcommerce ? 'text-slate-300 hover:text-white' : 'text-slate-500 hover:text-navy-900'
+                      isSelected ? 'text-orange-300 hover:text-white font-bold' : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >
                     Discuss in Wizard →

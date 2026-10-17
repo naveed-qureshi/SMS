@@ -83,21 +83,44 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
               </a>
             </div>
 
-            {/* Genuine Client Proof Snippet with Monogram Avatars for clean rendering */}
-            <div className="pt-4 border-t border-navy-800 flex items-center justify-center lg:justify-start gap-4 text-xs text-slate-400">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-slate-900 text-white font-black text-[11px] flex items-center justify-center border-2 border-navy-950 shadow">
-                  ED
-                </div>
-                <div className="w-8 h-8 rounded-full bg-amber-500 text-navy-950 font-black text-[11px] flex items-center justify-center border-2 border-navy-950 shadow">
-                  SV
-                </div>
-                <div className="w-8 h-8 rounded-full bg-red-600 text-white font-black text-[11px] flex items-center justify-center border-2 border-navy-950 shadow">
-                  SF
-                </div>
+            {/* Genuine Client Proof Snippet with 200x200 Client Avatars */}
+            <div className="pt-4 border-t border-navy-800 flex items-center justify-center lg:justify-start gap-3.5 text-xs text-slate-400">
+              <div className="flex -space-x-2 shrink-0">
+                <img
+                  src="/Clients/client-1.jpg"
+                  alt="Client"
+                  width={200}
+                  height={200}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover border-2 border-navy-950 shadow-md ring-1 ring-orange-sms/40"
+                />
+                <img
+                  src="/Clients/client-2.jpg"
+                  alt="Client"
+                  width={200}
+                  height={200}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover border-2 border-navy-950 shadow-md ring-1 ring-orange-sms/40"
+                />
+                <img
+                  src="/Clients/client-3.jpg"
+                  alt="Client"
+                  width={200}
+                  height={200}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover border-2 border-navy-950 shadow-md ring-1 ring-orange-sms/40"
+                />
+                <img
+                  src="/Clients/Ammar.jpg"
+                  alt="Client"
+                  width={200}
+                  height={200}
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover border-2 border-navy-950 shadow-md ring-1 ring-orange-sms/40"
+                />
               </div>
-              <div>
-                <span className="font-bold text-slate-300">Trusted by industry leaders:</span> <span className="font-bold text-white">Edifier.pk</span>, <span className="font-bold text-white">SkyVolt.pk</span>, <span className="font-bold text-white">Shan Foods</span> & <span className="font-bold text-white">Serwizo</span>.
+              <div className="leading-snug">
+                <span className="font-bold text-slate-300">Trusted by industry leaders:</span>{' '}
+                <span className="font-bold text-white">Edifier.pk</span>,{' '}
+                <span className="font-bold text-white">SkyVolt.pk</span>,{' '}
+                <span className="font-bold text-white">Shan Foods</span> &{' '}
+                <span className="font-bold text-white">Serwizo</span>.
               </div>
             </div>
 

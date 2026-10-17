@@ -9,6 +9,7 @@ import { ClientLogos } from '../components/home/ClientLogos';
 
 export const PackagesPage: React.FC = () => {
   const [selectedModules, setSelectedModules] = useState<string[]>([]);
+  const [selectedPackageId, setSelectedPackageId] = useState<string>('ecommerce-solution');
 
   const specializedModules = [
     { id: 'custom-domain', name: '.PK / .COM Official Domain & Cloud Business Email' },
@@ -75,28 +76,26 @@ export const PackagesPage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
           {PACKAGES_DATA.map((pkg) => {
-            const isEcommerce = pkg.id === 'ecommerce-solution';
-            const isPopular = pkg.isPopular;
+            const isSelected = pkg.id === selectedPackageId;
 
             return (
               <div
                 key={pkg.id}
-                className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between ${
-                  isEcommerce
-                    ? 'bg-navy-900/95 text-white shadow-2xl border-2 border-orange-500 ring-4 ring-orange-500/10 scale-100 lg:-translate-y-2'
-                    : 'bg-navy-900/80 backdrop-blur-sm text-slate-200 border border-navy-800 shadow-xl hover:shadow-2xl hover:border-orange-500/40'
+                onClick={() => setSelectedPackageId(pkg.id)}
+                className={`relative rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between cursor-pointer group ${
+                  isSelected
+                    ? 'bg-navy-900/95 text-white shadow-2xl border-2 border-orange-500 ring-4 ring-orange-500/20 scale-100 lg:-translate-y-2 z-10'
+                    : 'bg-navy-900/80 backdrop-blur-sm text-slate-200 border border-navy-800 shadow-xl hover:shadow-2xl hover:border-slate-600'
                 }`}
               >
                 {pkg.badge && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className={`text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1 ${
-                      isEcommerce
-                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white'
-                        : isPopular
-                        ? 'bg-blue-600 text-white'
+                      isSelected
+                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md'
                         : 'bg-navy-800 text-slate-300 border border-navy-700'
                     }`}>
-                      {isEcommerce && <Sparkles className="w-3 h-3" />}
+                      {isSelected && <Sparkles className="w-3 h-3 text-white" />}
                       {pkg.badge}
                     </span>
                   </div>
@@ -104,36 +103,36 @@ export const PackagesPage: React.FC = () => {
 
                 <div>
                   <div className="pt-2 mb-4">
-                    <h3 className="text-xl font-extrabold tracking-tight text-white">
+                    <h3 className={`text-xl font-extrabold tracking-tight ${isSelected ? 'text-white' : 'text-slate-100 group-hover:text-white'}`}>
                       {pkg.name}
                     </h3>
-                    <p className="text-xs mt-1 leading-snug text-slate-400">
+                    <p className={`text-xs mt-1 leading-snug ${isSelected ? 'text-orange-200/90' : 'text-slate-400'}`}>
                       For {pkg.targetAudience}
                     </p>
                   </div>
 
-                  <div className={`py-3 px-4 rounded-xl mb-5 ${isEcommerce ? 'bg-navy-800/90 border border-navy-700' : 'bg-navy-950/80 border border-navy-800'}`}>
-                    <div className="text-[11px] font-semibold text-slate-400">Model</div>
+                  <div className={`py-3 px-4 rounded-xl mb-5 ${isSelected ? 'bg-navy-800/90 border border-orange-500/40' : 'bg-navy-950/80 border border-navy-800'}`}>
+                    <div className={`text-[11px] font-semibold ${isSelected ? 'text-orange-300' : 'text-slate-400'}`}>Pricing Model</div>
                     <div className="flex items-baseline gap-1">
-                      <span className={`text-base lg:text-lg font-extrabold tracking-tight ${isEcommerce ? 'text-orange-400' : 'text-white'}`}>
+                      <span className={`text-base lg:text-lg font-extrabold tracking-tight ${isSelected ? 'text-orange-400' : 'text-white'}`}>
                         {pkg.price}
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-xs leading-relaxed mb-5 text-slate-300">
+                  <p className={`text-xs leading-relaxed mb-5 ${isSelected ? 'text-slate-200' : 'text-slate-300'}`}>
                     {pkg.tagline}
                   </p>
 
                   <div className="space-y-2.5 pt-2 border-t border-navy-800">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-orange-400">
+                    <div className={`text-[11px] font-bold uppercase tracking-wider ${isSelected ? 'text-orange-400' : 'text-slate-400'}`}>
                       Core Capabilities:
                     </div>
                     <ul className="space-y-2">
                       {pkg.features.map((feat, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs">
-                          <Check className="w-3.5 h-3.5 shrink-0 mt-0.5 text-emerald-400" />
-                          <span className={feat.highlighted ? 'font-bold text-white' : 'text-slate-300'}>
+                          <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${isSelected ? 'text-orange-400' : 'text-emerald-400'}`} />
+                          <span className={feat.highlighted ? (isSelected ? 'font-bold text-white' : 'font-bold text-slate-100') : (isSelected ? 'text-slate-200' : 'text-slate-300')}>
                             {feat.text}
                           </span>
                         </li>
@@ -147,8 +146,9 @@ export const PackagesPage: React.FC = () => {
                     href={getWhatsAppUrl(`Hi Smart Multi Solutions team, I want to request a customized quote for: ${pkg.name}.`)}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     className={`w-full py-3 px-4 rounded-xl text-xs font-extrabold transition-all duration-200 flex items-center justify-center gap-2 ${
-                      isEcommerce
+                      isSelected
                         ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02]'
                         : 'bg-navy-800 hover:bg-navy-750 text-white border border-navy-700'
                     }`}
