@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ShieldCheck, ArrowRight, Globe, CheckCircle } from 'lucide-react';
+import { ExternalLink, ShieldCheck, ArrowRight, Globe, CheckCircle, Monitor, Smartphone, Sparkles } from 'lucide-react';
 import { PORTFOLIO_PROJECTS } from '../../data/portfolio';
 
 export const PortfolioSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [deviceViews, setDeviceViews] = useState<Record<string, 'desktop' | 'mobile'>>({});
 
   const filteredProjects = activeFilter === 'all'
     ? PORTFOLIO_PROJECTS
     : PORTFOLIO_PROJECTS.filter(p => p.industry.toLowerCase().includes(activeFilter.toLowerCase()));
+
+  const toggleView = (projectId: string, view: 'desktop' | 'mobile') => {
+    setDeviceViews(prev => ({ ...prev, [projectId]: view }));
+  };
 
   return (
     <section id="portfolio" className="py-24 bg-navy-950 border-b border-navy-850 relative">
@@ -25,7 +30,7 @@ export const PortfolioSection: React.FC = () => {
               Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Real Businesses</span>
             </h2>
             <p className="text-base text-slate-300">
-              Explore actual platforms engineered for established distributors, renewable energy firms, and commercial enterprises. No fabricated case studies or unverified figures.
+              Explore live platforms engineered for established distributors, clean-tech firms, and commercial enterprises. View each website in both <strong>Laptop/Desktop</strong> and <strong>Mobile</strong> responsive layouts.
             </p>
           </div>
 
@@ -39,123 +44,203 @@ export const PortfolioSection: React.FC = () => {
         </div>
 
         {/* Portfolio Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-navy-900/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-navy-800 shadow-xl hover:shadow-2xl hover:border-orange-500/40 transition-all duration-300 flex flex-col justify-between"
-            >
-              {/* Browser Mockup Frame */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-navy-950 border-b border-navy-800 flex flex-col">
-                {/* Browser Top Bar */}
-                <div className="bg-navy-900/90 px-4 py-2 border-b border-navy-800 flex items-center justify-between text-xs select-none">
-                  <div className="flex items-center space-x-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
-                  </div>
-                  <div className="flex items-center gap-1.5 bg-navy-950/80 px-3 py-1 rounded-md text-[11px] text-slate-400 border border-navy-800/80 font-mono">
-                    <Globe className="w-3 h-3 text-orange-400" />
-                    <span>{project.liveUrl ? project.liveUrl.replace('https://', '') : `${project.id}.com`}</span>
-                  </div>
-                  <div className="text-[10px] text-emerald-400 font-bold flex items-center gap-1">
-                    <CheckCircle className="w-3 h-3" /> Live
-                  </div>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          {filteredProjects.map((project) => {
+            const currentView = deviceViews[project.id] || 'desktop';
 
-                {/* Screenshot & Visual Area */}
-                <div className="relative flex-1 bg-gradient-to-br from-navy-900 via-navy-950 to-slate-900 flex items-center justify-center p-6 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} - Smart Multi Solutions case study`}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                    loading="lazy"
-                    onError={(e) => {
-                      // Elegant fallback banner if external image fails
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
+            return (
+              <div
+                key={project.id}
+                className="group bg-navy-900/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-navy-800 shadow-xl hover:shadow-2xl hover:border-orange-500/40 transition-all duration-300 flex flex-col justify-between"
+              >
+                {/* Visual Showcase Area */}
+                <div className="relative bg-navy-950 border-b border-navy-800 flex flex-col">
                   
-                  {/* Overlay Monogram & Info if image fails or before load */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none p-6 text-center -z-0 opacity-40 group-hover:opacity-60 transition">
-                    <span className="text-5xl font-black text-white/20 tracking-widest uppercase">
-                      {project.clientName.slice(0, 3)}
-                    </span>
-                  </div>
+                  {/* Top Bar with Device View Toggle & URL */}
+                  <div className="bg-navy-900/95 px-4 py-2.5 border-b border-navy-800 flex flex-wrap items-center justify-between gap-2 text-xs select-none">
+                    <div className="flex items-center space-x-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
+                    </div>
 
-                  {/* Verified Tag */}
-                  <div className="absolute top-3 left-3 bg-navy-950/90 backdrop-blur-md text-white border border-navy-700 px-3 py-1 rounded-full text-[11px] font-bold flex items-center gap-1.5 shadow-sm">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Verified SMS Client</span>
-                  </div>
+                    {/* Domain pill */}
+                    <div className="flex items-center gap-1.5 bg-navy-950 px-3 py-1 rounded-md text-[11px] text-slate-300 border border-navy-800 font-mono">
+                      <Globe className="w-3 h-3 text-orange-400" />
+                      <span>{project.liveUrl ? project.liveUrl.replace('https://', '') : `${project.id}.com`}</span>
+                    </div>
 
-                  {/* Industry Tag */}
-                  <div className="absolute top-3 right-3 bg-orange-500/20 border border-orange-500/30 text-orange-300 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-extrabold shadow-sm">
-                    {project.industry}
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Details */}
-              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
-                <div>
-                  <div className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-1">
-                    {project.clientName}
-                  </div>
-                  <h3 className="text-xl font-extrabold text-white leading-snug group-hover:text-orange-300 transition">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Delivered Services Pills */}
-                <div className="space-y-3 pt-3 border-t border-navy-800">
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                    Delivered Capabilities:
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.servicesDelivered.map((srv, idx) => (
-                      <span
-                        key={idx}
-                        className="text-[11px] bg-navy-800/90 border border-navy-700 text-slate-200 font-semibold px-2.5 py-1 rounded-md"
+                    {/* 2 Formats Switcher: Laptop vs Mobile */}
+                    <div className="flex items-center gap-1 bg-navy-950/90 p-0.5 rounded-lg border border-navy-800 shadow-inner">
+                      <button
+                        onClick={() => toggleView(project.id, 'desktop')}
+                        title="View Laptop / Desktop Layout"
+                        className={`flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold transition ${
+                          currentView === 'desktop'
+                            ? 'bg-gradient-to-r from-orange-sms to-orange-sms-hover text-white shadow'
+                            : 'text-slate-400 hover:text-white'
+                        }`}
                       >
-                        {srv}
-                      </span>
-                    ))}
+                        <Monitor className="w-3.5 h-3.5" />
+                        <span>Laptop</span>
+                      </button>
+                      <button
+                        onClick={() => toggleView(project.id, 'mobile')}
+                        title="View Smartphone Mobile Layout"
+                        className={`flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold transition ${
+                          currentView === 'mobile'
+                            ? 'bg-gradient-to-r from-orange-sms to-orange-sms-hover text-white shadow'
+                            : 'text-slate-400 hover:text-white'
+                        }`}
+                      >
+                        <Smartphone className="w-3.5 h-3.5" />
+                        <span>Mobile</span>
+                      </button>
+                    </div>
                   </div>
-                </div>
 
-                {/* Action Link */}
-                <div className="pt-4 border-t border-navy-800 flex items-center justify-between">
-                  <span className="text-xs text-slate-400 font-medium">
-                    Verified Deployment
-                  </span>
-                  {project.liveUrl ? (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-extrabold text-orange-400 hover:text-orange-300 group/link transition"
-                    >
-                      <span>Visit Live Platform</span>
-                      <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition" />
-                    </a>
+                  {/* Device Screen Rendering Area */}
+                  {currentView === 'desktop' ? (
+                    /* Laptop / Desktop View */
+                    <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-navy-900 via-navy-950 to-slate-900 flex items-center justify-center">
+                      <img
+                        src={project.desktopImage || project.image}
+                        alt={`${project.title} - Laptop desktop view`}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-95 group-hover:opacity-100"
+                        loading="lazy"
+                      />
+
+                      {/* Verified Badge */}
+                      <div className="absolute top-3 left-3 bg-navy-950/90 backdrop-blur-md text-white border border-navy-700 px-3 py-1 rounded-full text-[11px] font-bold flex items-center gap-1.5 shadow-md">
+                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Verified SMS Client</span>
+                      </div>
+
+                      {/* Floating Mini Mobile Preview Button */}
+                      <button
+                        onClick={() => toggleView(project.id, 'mobile')}
+                        className="absolute bottom-3 right-3 bg-navy-950/95 hover:bg-orange-sms text-white border border-navy-700 hover:border-orange-sms px-3 py-1.5 rounded-xl text-[11px] font-bold flex items-center gap-1.5 shadow-lg transition-all"
+                        title="Switch to Mobile View"
+                      >
+                        <Smartphone className="w-3.5 h-3.5 text-orange-400 group-hover:text-white" />
+                        <span>📱 Switch to Mobile View</span>
+                      </button>
+                    </div>
                   ) : (
-                    <Link
-                      to="/portfolio"
-                      className="inline-flex items-center gap-1.5 text-xs font-extrabold text-white hover:text-orange-400 transition"
-                    >
-                      <span>View Project Details</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
+                    /* Smartphone Mobile View */
+                    <div className="relative py-6 px-4 bg-gradient-to-b from-navy-950 via-slate-950 to-navy-950 flex flex-col items-center justify-center min-h-[420px]">
+                      
+                      {/* Realistic Smartphone Mockup Shell */}
+                      <div className="w-[240px] sm:w-[260px] aspect-[9/18.5] bg-slate-950 rounded-[2.2rem] border-4 border-slate-700 shadow-2xl p-1 relative flex flex-col mx-auto overflow-hidden ring-4 ring-orange-sms/20">
+                        
+                        {/* Dynamic Island / Notch */}
+                        <div className="w-20 h-4 bg-slate-900 rounded-full mx-auto mt-2 mb-1 z-20 flex items-center justify-center">
+                          <span className="w-2 h-2 rounded-full bg-slate-800" />
+                        </div>
+
+                        {/* Inner Screen Displaying Mobile Screenshot */}
+                        <div className="flex-1 w-full rounded-[1.8rem] overflow-hidden bg-slate-900 relative">
+                          <img
+                            src={project.mobileImage || project.desktopImage}
+                            alt={`${project.title} - Mobile view`}
+                            className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+
+                        {/* Home indicator bar */}
+                        <div className="w-20 h-1 bg-slate-600 rounded-full mx-auto my-1.5" />
+                      </div>
+
+                      {/* Switch back to Laptop View pill */}
+                      <button
+                        onClick={() => toggleView(project.id, 'desktop')}
+                        className="mt-4 bg-navy-900 hover:bg-navy-800 text-slate-200 border border-navy-700 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow transition"
+                      >
+                        <Monitor className="w-3.5 h-3.5 text-orange-400" />
+                        <span>Switch to Laptop View</span>
+                      </button>
+                    </div>
                   )}
+
                 </div>
 
+                {/* Card Details */}
+                <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    {/* Client logo & name header */}
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <div className="flex items-center gap-2">
+                        {project.logo && (
+                          <div className="w-8 h-8 rounded-lg bg-white p-1 flex items-center justify-center shadow-sm border border-slate-200 shrink-0">
+                            <img src={project.logo} alt="" className="max-h-full max-w-full object-contain" />
+                          </div>
+                        )}
+                        <span className="text-xs font-bold text-orange-400 uppercase tracking-wider">
+                          {project.clientName}
+                        </span>
+                      </div>
+                      <span className="text-[11px] font-extrabold text-orange-300 bg-orange-500/10 border border-orange-500/20 px-2.5 py-0.5 rounded-full">
+                        {project.industry}
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-extrabold text-white leading-snug group-hover:text-orange-300 transition">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Delivered Services Pills */}
+                  <div className="space-y-3 pt-3 border-t border-navy-800">
+                    <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                      Delivered Capabilities:
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.servicesDelivered.map((srv, idx) => (
+                        <span
+                          key={idx}
+                          className="text-[11px] bg-navy-800/90 border border-navy-700 text-slate-200 font-semibold px-2.5 py-1 rounded-md"
+                        >
+                          {srv}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Action Link */}
+                  <div className="pt-4 border-t border-navy-800 flex items-center justify-between">
+                    <span className="text-xs text-slate-400 font-medium flex items-center gap-1">
+                      <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Verified Deployment</span>
+                    </span>
+                    {project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-extrabold text-orange-400 hover:text-orange-300 group/link transition"
+                      >
+                        <span>Visit Live Platform</span>
+                        <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition" />
+                      </a>
+                    ) : (
+                      <Link
+                        to="/portfolio"
+                        className="inline-flex items-center gap-1.5 text-xs font-extrabold text-white hover:text-orange-400 transition"
+                      >
+                        <span>View Project Details</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    )}
+                  </div>
+
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

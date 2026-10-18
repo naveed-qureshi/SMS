@@ -118,6 +118,7 @@ export const Hero: React.FC<HeroProps> = ({ onStartJourney }) => {
               <div className="leading-snug">
                 <span className="font-bold text-slate-300">Trusted by industry leaders:</span>{' '}
                 <span className="font-bold text-white">Edifier.pk</span>,{' '}
+                <span className="font-bold text-white">ElectronicsMart.pk</span>,{' '}
                 <span className="font-bold text-white">SkyVolt.pk</span>,{' '}
                 <span className="font-bold text-white">Shan Foods</span> &{' '}
                 <span className="font-bold text-white">Serwizo</span>.

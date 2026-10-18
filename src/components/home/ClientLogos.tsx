@@ -7,7 +7,7 @@ export interface ClientBrand {
   url: string;
   category: string;
   description: string;
-  accentColor: string;
+  logo: string;
   badge: string;
 }
 
@@ -18,8 +18,17 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     url: 'https://edifier.pk',
     category: 'Premium Audio & E-Commerce',
     description: 'Official online storefront & digital sales growth',
-    accentColor: 'from-slate-900 to-slate-800 text-white',
+    logo: '/Clients/Edifier-logo1.jpg',
     badge: 'Official E-Commerce'
+  },
+  {
+    name: 'Electronics Mart',
+    domain: 'electronicsmart.pk',
+    url: 'https://electronicsmart.pk',
+    category: 'Full-Scale Appliance E-Commerce',
+    description: 'Luxury appliance showroom & nationwide e-commerce store',
+    logo: '/Clients/ElectronicsMart-logo.jpg',
+    badge: 'Full-Scale E-Commerce'
   },
   {
     name: 'SkyVolt',
@@ -27,7 +36,7 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     url: 'https://skyvolt.pk',
     category: 'Solar & Renewable Energy',
     description: 'Corporate web platform & solar consultation funnel',
-    accentColor: 'from-amber-600 to-emerald-600 text-white',
+    logo: '/Clients/SkyVolt-logo.jpg',
     badge: 'Clean-Tech Platform'
   },
   {
@@ -36,7 +45,7 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     url: 'https://organityengineering.com',
     category: 'Hardware & IoT Engineering',
     description: 'Technical product showcase & corporate portal',
-    accentColor: 'from-cyan-900 to-blue-900 text-white',
+    logo: '/Clients/Organity-logo.jpg',
     badge: 'Engineering & IoT'
   },
   {
@@ -45,16 +54,16 @@ export const CLIENT_BRANDS: ClientBrand[] = [
     url: 'https://serwizo.com',
     category: 'On-Demand Multi-Services',
     description: 'Service booking ecosystem & provider marketplace',
-    accentColor: 'from-blue-700 to-indigo-900 text-white',
+    logo: '/Clients/Serwizo-logo3.jpg',
     badge: 'Service Marketplace'
   },
   {
     name: 'Shan Foods',
     domain: 'shanfoodspk.com',
     url: 'https://shanfoodspk.com',
-    category: 'FMCG & Global Food Brand',
-    description: 'Digital presence initiatives & product showcases',
-    accentColor: 'from-red-800 to-rose-900 text-white',
+    category: 'FMCG & Food Retail',
+    description: 'Online ordering platform & brand presence initiatives',
+    logo: '/Clients/ShanFoods-logo.jpg',
     badge: 'Enterprise Partner'
   }
 ];
@@ -81,84 +90,45 @@ export const ClientLogos: React.FC = () => {
           </p>
         </div>
 
-        {/* 5 Main Client Brand Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* 6 Main Client Brand Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {CLIENT_BRANDS.map((client, idx) => (
             <a
               key={idx}
               href={client.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-navy-900 hover:bg-navy-850 rounded-2xl p-5 border border-navy-800 hover:border-orange-sms/50 hover:shadow-2xl hover:shadow-orange-sms/10 transition-all duration-300 flex flex-col justify-between"
+              className="group relative bg-navy-900/90 hover:bg-navy-850 rounded-2xl p-4 sm:p-5 border border-navy-800 hover:border-orange-sms/50 hover:shadow-2xl hover:shadow-orange-sms/10 transition-all duration-300 flex flex-col justify-between"
             >
               {/* Top Row: Category & Link Icon */}
               <div className="flex items-center justify-between text-xs text-slate-400 mb-3">
-                <span className="font-mono text-[11px] font-semibold text-slate-400 group-hover:text-orange-sms transition">
+                <span className="font-mono text-[11px] font-semibold text-slate-400 group-hover:text-orange-sms transition truncate pr-1">
                   {client.domain}
                 </span>
-                <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-orange-sms group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ExternalLink className="w-3.5 h-3.5 shrink-0 text-slate-500 group-hover:text-orange-sms group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
 
-              {/* Logo / Brand Representation */}
-              <div className="my-2 py-4 px-2 rounded-xl bg-navy-950/80 group-hover:bg-navy-950 border border-navy-800 flex items-center justify-center text-center transition">
-                {client.name === 'Edifier Pakistan' && (
-                  <div className="flex flex-col items-center">
-                    <span className="font-black text-xl tracking-[0.2em] text-white font-sans">
-                      EDIFIER
-                    </span>
-                    <span className="text-[9px] uppercase tracking-wider text-orange-sms font-bold">
-                      Pakistan
-                    </span>
-                  </div>
-                )}
-                {client.name === 'SkyVolt' && (
-                  <div className="flex items-center gap-1.5 font-extrabold text-lg tracking-tight text-white">
-                    <span className="text-amber-400 text-xl font-black">⚡</span>
-                    <span>Sky</span>
-                    <span className="text-emerald-400">Volt</span>
-                  </div>
-                )}
-                {client.name === 'Organity Electronics' && (
-                  <div className="flex flex-col items-center">
-                    <span className="font-extrabold text-base tracking-tight text-white flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                      ORGANITY
-                    </span>
-                    <span className="text-[9px] tracking-wider text-slate-400 font-semibold uppercase">
-                      Electronics
-                    </span>
-                  </div>
-                )}
-                {client.name === 'Serwizo' && (
-                  <div className="flex items-center gap-1 font-black text-lg text-blue-400">
-                    <span className="text-orange-sms text-xl">✦</span>
-                    <span className="tracking-wide">serwizo</span>
-                    <span className="text-[10px] text-slate-500 font-normal">.com</span>
-                  </div>
-                )}
-                {client.name === 'Shan Foods' && (
-                  <div className="flex flex-col items-center">
-                    <div className="px-3 py-0.5 bg-red-600 rounded text-white font-serif font-black text-sm tracking-wider shadow-sm">
-                      Shan
-                    </div>
-                    <span className="text-[9px] tracking-wider text-slate-300 font-bold uppercase mt-1">
-                      Foods
-                    </span>
-                  </div>
-                )}
+              {/* Logo Box with clean backdrop */}
+              <div className="my-2 py-2 px-3 rounded-xl bg-white flex items-center justify-center text-center shadow-md h-20 transition group-hover:scale-[1.02]">
+                <img
+                  src={client.logo}
+                  alt={`${client.name} official logo`}
+                  className="max-h-12 max-w-[130px] object-contain transition-transform duration-300"
+                  loading="lazy"
+                />
               </div>
 
               {/* Bottom Details */}
               <div className="mt-3 pt-3 border-t border-navy-800">
-                <div className="text-xs font-bold text-white group-hover:text-orange-sms transition">
+                <div className="text-xs font-bold text-white group-hover:text-orange-sms transition truncate">
                   {client.name}
                 </div>
-                <p className="text-[11px] text-slate-400 leading-snug mt-1">
+                <p className="text-[11px] text-slate-400 leading-snug mt-1 line-clamp-2">
                   {client.description}
                 </p>
                 <div className="mt-2.5 inline-flex items-center gap-1 text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-900">
                   <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                  {client.badge}
+                  <span>{client.badge}</span>
                 </div>
               </div>
             </a>

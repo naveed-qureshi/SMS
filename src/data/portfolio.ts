@@ -5,7 +5,10 @@ export interface ProjectItem {
   industry: string;
   servicesDelivered: string[];
   description: string;
-  image: string;
+  desktopImage: string;
+  mobileImage: string;
+  image?: string; // backwards compatibility
+  logo?: string;
   liveUrl?: string;
   verified: boolean;
   featured?: boolean;
@@ -26,11 +29,36 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       'Inventory Synchronization & Speed Optimization'
     ],
     description: 'Designed and deployed an e-commerce storefront for the official distributor of Edifier premium audio products in Pakistan (edifier.pk). Streamlined the checkout process, integrated automated order notifications, and executed performance marketing campaigns aligned with their global brand identity.',
-    image: 'https://smartmultisolutions.com/wp-content/uploads/2026/09/SMS-Business-Growth-scaled.jpg',
+    desktopImage: '/portfolio/edifier-desktop.png',
+    mobileImage: '/portfolio/edifier-mobile.png',
+    image: '/portfolio/edifier-desktop.png',
+    logo: '/Clients/Edifier-logo1.jpg',
     liveUrl: 'https://edifier.pk',
     verified: true,
     featured: true,
     results: 'High conversion rate, seamless checkout flow, and nationwide product delivery integration.'
+  },
+  {
+    id: 'electronics-mart',
+    title: 'Electronics Mart - Full-Scale Luxury Appliance E-Commerce',
+    clientName: 'Electronics Mart',
+    industry: 'Luxury Electronics & Home Appliances',
+    servicesDelivered: [
+      'Full-Scale E-Commerce Storefront',
+      'Category Floors & Filter Engine',
+      'Inverter AC & Appliance Showcase',
+      'Showroom Consultation & WhatsApp Funnel',
+      'High-Speed Cloud Architecture'
+    ],
+    description: 'Engineered a high-performance e-commerce platform for Electronics Mart (electronicsmart.pk) featuring extensive appliance catalogs, multi-category floors, real-time lead capture, and streamlined customer checkout.',
+    desktopImage: '/portfolio/electronicsmart-desktop.jpg',
+    mobileImage: '/portfolio/electronicsmart-mobile.jpg',
+    image: '/portfolio/electronicsmart-desktop.jpg',
+    logo: '/Clients/ElectronicsMart-logo.jpg',
+    liveUrl: 'https://electronicsmart.pk',
+    verified: true,
+    featured: true,
+    results: 'High nationwide conversion rates and automated omnichannel order routing.'
   },
   {
     id: 'skyvolt-tech',
@@ -44,7 +72,10 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       'Search Engine Optimization (SEO)'
     ],
     description: 'Developed a corporate web platform for SkyVolt (skyvolt.pk) to showcase commercial, industrial, and residential solar systems across Pakistan. Engineered interactive consultation funnels that connect inbound prospects directly with their engineering sales team.',
-    image: 'https://smartmultisolutions.com/wp-content/uploads/2026/09/Your-Business-First-scaled.webp',
+    desktopImage: '/portfolio/skyvolt-desktop.png',
+    mobileImage: '/portfolio/skyvolt-mobile.png',
+    image: '/portfolio/skyvolt-desktop.png',
+    logo: '/Clients/SkyVolt-logo.jpg',
     liveUrl: 'https://skyvolt.pk',
     verified: true,
     featured: true,
@@ -62,7 +93,10 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       'Corporate Branding & Global Web Presence'
     ],
     description: 'Built a specialized technical platform for Organity Electronics (organityengineering.com) to present hardware development, PCB design services, and smart device engineering. Streamlined the technical quotation process for corporate clients.',
-    image: 'https://smartmultisolutions.com/wp-content/uploads/2025/07/Experties.jpg',
+    desktopImage: '/portfolio/organity-desktop.png',
+    mobileImage: '/portfolio/organity-mobile.png',
+    image: '/portfolio/organity-desktop.png',
+    logo: '/Clients/Organity-logo.jpg',
     liveUrl: 'https://organityengineering.com',
     verified: true,
     featured: true,
@@ -80,7 +114,10 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       'Mobile-Optimized Booking Workflows'
     ],
     description: 'Constructed an on-demand service ecosystem for Serwizo (serwizo.com), allowing users to explore residential and commercial maintenance services, schedule appointments, and connect directly with verified specialists.',
-    image: 'https://smartmultisolutions.com/wp-content/uploads/2025/07/contact-banner-765x1024.jpg',
+    desktopImage: '/portfolio/serwizo-desktop.png',
+    mobileImage: '/portfolio/serwizo-mobile.png',
+    image: '/portfolio/serwizo-desktop.png',
+    logo: '/Clients/Serwizo-logo3.jpg',
     liveUrl: 'https://serwizo.com',
     verified: true,
     featured: true,
@@ -97,8 +134,11 @@ export const PORTFOLIO_PROJECTS: ProjectItem[] = [
       'Catalog & Digital Distribution Structuring',
       'Enterprise Digital Strategy'
     ],
-    description: 'Collaborating on digital initiatives and presence enhancements for Shan Foods (shanfoodspk.com), the household spices and culinary brand, supporting customer engagement and digital product catalog clarity.',
-    image: 'https://smartmultisolutions.com/wp-content/uploads/2026/09/SMS-Business-Growth-scaled.jpg',
+    description: 'Collaborating on digital initiatives and online ordering presence for Shan Foods (shanfoodspk.com), supporting customer engagement and digital product catalog clarity.',
+    desktopImage: '/portfolio/shanfoods-desktop.png',
+    mobileImage: '/portfolio/shanfoods-mobile.png',
+    image: '/portfolio/shanfoods-desktop.png',
+    logo: '/Clients/ShanFoods-logo.jpg',
     liveUrl: 'https://shanfoodspk.com',
     verified: true,
     featured: true,
